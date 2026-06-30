@@ -1,0 +1,150 @@
+% Created 2026-06-29 lun 21:04
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[backend=biber, style=apa]{biblatex}
+\addbibresource{./bibliography/bibliography.bib}
+\usetheme{default}
+\usecolortheme{}
+\usefonttheme{}
+\useinnertheme{}
+\useoutertheme{}
+\author{Lenin G. Falconí}
+\date{}
+\title{S11 — Sistemas de Entrada/Salida}
+
+\hypersetup{
+ pdfauthor={Lenin G. Falconí},
+ pdftitle={S11 — Sistemas de Entrada/Salida},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={Spanish}}
+\begin{document}
+
+\maketitle
+\begin{frame}{Outline}
+\tableofcontents
+\end{frame}
+
+\section{Indicaciones}
+\label{sec:org85e6974}
+\begin{frame}[fragile,allowframebreaks]{Indicaciones}
+ \begin{itemize}
+\item Recuerde que si \texttt{options: H:2}, entonces:
+\begin{itemize}
+\item \texttt{*} Declara el nombre de la Sección
+\item \texttt{**} Declara el nombre de la diapositiva
+\end{itemize}
+\item Puede alterar la estructura de la diapositiva si lo considera necesario
+\item Reparto del tema por grupos:
+\begin{itemize}
+\item \alert{G7:} Sistemas de E/S, Módulos de E/S, E/S Programada, E/S mediante Interrupción, DMA
+\item \alert{G8:} Canales y Procesadores de E/S, Estándares de interconexión externa (USB, FireWire, SCSI, Thunderbolt, SATA, Ethernet, Wi-Fi)
+\end{itemize}
+\item Para este tema consulte las siguientes fuentes:
+\begin{itemize}
+\item \textcite{stallings2006esp}, 7ma edición, 2006, Español, Capítulo 7.
+\item \textcite{stallings2022computer}, 11ava edición, 2022, English, Capítulo 8.
+\end{itemize}
+\item Las tuplas (11, 270) significan: Edición 11, página 270 del PDF.
+\item El grupo expone el tema y sube la presentación (\texttt{.ORG} y \texttt{.PDF} para Beamer, o \texttt{.ORG} y \texttt{.HTML} para reveal.js)
+\item El grupo sube las ayudas memoria/notas del tema usando la plantilla \url{FormatoTareas/TemplateNotasClase.org} (\texttt{.ORG} y \texttt{.PDF})
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:org8ccdc36},fragile]{Diseño de las Diapositivas}
+ \begin{itemize}
+\item Para diseñar sus diapositivas puede consultar cualquiera de las
+presentaciones \texttt{.ORG} desarrolladas por el profesor así como al
+archivo \href{https://github.com/LeninGF/EPN-Lectures/blob/main/iccd332ArqComp-2024-B/Tutoriales/Beamer-Emacs/tutorialBeamer.org}{tutorialBeamer.org} en el repositorio de la clase.
+\item Recuerde que los archivos \texttt{.ORG} son archivos de texto así que los
+puede copiar y sustituir por su texto propio.
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:orgc1fb4ed}]{Sobre este Documento}
+\begin{itemize}
+\item Este documento tiene la propuesta de temas a tratar y desarrollar
+por los estudiantes.
+\item Se ha de utilizar como base la bibliografía recomendada, pero puede
+consultar bibliografía adicional.
+\end{itemize}
+\end{frame}
+\section{G7 — Sistemas de Entrada/Salida}
+\label{sec:org3a4715c}
+\begin{frame}[label={sec:org847d669}]{Introducción (11, 270) (7, 229)}
+\end{frame}
+\begin{frame}[allowframebreaks]{Dispositivos Externos}
+\end{frame}
+\begin{frame}[label={sec:org8d0d665}]{Teclado/Monitor}
+\end{frame}
+\begin{frame}[label={sec:org3fb24d6}]{Controlador de Disco (Disk Drive)}
+\end{frame}
+\section{G7 — Módulos de E/S}
+\label{sec:orga4d069c}
+\begin{frame}[label={sec:orgc04ff3d}]{Módulos de E/S (11, 273) (7, 236)}
+\end{frame}
+\begin{frame}[label={sec:orgdbe0c0d}]{Funciones}
+\end{frame}
+\begin{frame}[label={sec:orgf9596dc}]{Estructura de Módulos de E/S}
+\end{frame}
+\section{G7 — E/S Programada}
+\label{sec:org4dda4b8}
+\begin{frame}[label={sec:org3933a22}]{E/S Programada (11, 276) (7, 239)}
+\end{frame}
+\begin{frame}[label={sec:org6cce941}]{Comandos de E/S}
+\end{frame}
+\begin{frame}[label={sec:org5d0dc1e}]{Instrucciones de E/S}
+\end{frame}
+\section{G7 — E/S mediante Interrupción}
+\label{sec:org204aa1e}
+\begin{frame}[label={sec:orgd9e01fb}]{E/S mediante Interrupción (11, 280) (7, 243)}
+\end{frame}
+\begin{frame}[label={sec:org6341ffd}]{Procesamiento de la Interrupción}
+\end{frame}
+\begin{frame}[label={sec:orgb5ab68b}]{Problemas de diseño}
+\end{frame}
+\section{G7 — Acceso directo a Memoria DMA}
+\label{sec:org5308b7c}
+\begin{frame}[label={sec:org23687ef}]{Acceso directo a Memoria DMA (11, 290) (7, 251)}
+\end{frame}
+\begin{frame}[label={sec:orgcaa58b7}]{Funcionalidad de DMA}
+\end{frame}
+\section{G8 — Canales y Procesadores de E/S}
+\label{sec:org18c702c}
+\begin{frame}[label={sec:org82ba20b}]{Canales y Procesadores de E/S}
+\end{frame}
+\begin{frame}[label={sec:orga0f08de}]{Evolución de las funciones E/S}
+\end{frame}
+\begin{frame}[label={sec:orgf500018}]{Características de los canales E/S}
+\end{frame}
+\section{G8 — Estándares de interconexión externa}
+\label{sec:orgfdd8f93}
+\begin{frame}[label={sec:orgd0faa4e}]{USB}
+\end{frame}
+\begin{frame}[label={sec:org801ed0e}]{FireWire}
+\end{frame}
+\begin{frame}[label={sec:orgadda81d}]{SCSI}
+\end{frame}
+\begin{frame}[label={sec:org170b259}]{Thunderbolt}
+\end{frame}
+\begin{frame}[label={sec:org3c0b962}]{SATA}
+\end{frame}
+\begin{frame}[label={sec:org84797e2}]{Ethernet}
+\end{frame}
+\begin{frame}[label={sec:org4112554}]{Wi-Fi}
+\printbibliography
+\end{frame}
+\end{document}
