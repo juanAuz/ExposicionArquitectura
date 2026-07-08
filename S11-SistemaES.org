@@ -1,30 +1,20 @@
-#+options: H:2
-#+latex_class: beamer
-#+columns: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
-#+beamer_theme: default
-#+beamer_color_theme:
-#+beamer_font_theme:
-#+beamer_inner_theme:
-#+beamer_outer_theme:
-#+beamer_header:
 
 #+title: S11 — Sistemas de Entrada/Salida
-#+date: 
-#+author: Lenin G. Falconí
-#+email: lenin.falconi@epn.edu.ec
+#+date: 2026-07-07
+#+author: Grupo 7 - Grupo 8
+#+email: juan.auzmontezuma@epn.edu.ec
 #+language: es
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 27.1 (Org mode 9.3)
-#+cite_export: biblatex
+#+options: toc:nil num:nil H:2
 
-#+bibliography: ./bibliography/bibliography.bib
-#+LATEX_HEADER: \usepackage[T1]{fontenc}
-#+LATEX_HEADER: \usepackage[utf8]{inputenc}
-#+LATEX_HEADER: \usepackage[spanish]{babel}
-#+LATEX_HEADER: \usepackage[backend=biber,citestyle=apa, style=apa]{biblatex}
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_THEME: dracula
+#+REVEAL_TRANS: slide
+#+REVEAL_PLUGINS: (highlight)
 
-* Indicaciones
+* Indicaciones :noexport:
 ** Indicaciones
 :PROPERTIES:
 :BEAMER_opt: allowframebreaks
@@ -57,9 +47,10 @@
 * G7 — Sistemas de Entrada/Salida
 ** Introducción (11, 270) (7, 229)
 ** Dispositivos Externos 
-:PROPERTIES:
-:BEAMER_opt: allowframebreaks
-:END:
+Este es un ejemplo de como va a quedar la diapo con el 50% de tamaño
+maximo
+#+attr_html: :style max-height: 70vh; object-fit: contain;
+[[file:images/logoEpn.jpg]]
 ** Teclado/Monitor
 ** Controlador de Disco (Disk Drive)
 * G7 — Módulos de E/S
