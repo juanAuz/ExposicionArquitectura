@@ -1,0 +1,49 @@
+.reveal strong,
+.reveal b {
+  color: #FFB86C;
+}
+
+.reveal em,
+.reveal i {
+  color: #F1FA8C;
+}
+
+.reveal code {
+  color: #50FA7B;
+}
+
+.reveal ul li::marker,
+.reveal ol li::marker {
+  color: #8BE9FD;
+}
+/* Centrar imágenes solas y contenedores de figuras con caption en Org-mode */
+.reveal .figure, 
+.reveal img {
+  justify-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+/* Opcional: Asegurar que el caption se vea bien debajo de la imagen */
+.reveal .figure-number,
+.reveal .figure p {
+  margin: 0 auto !important;
+}
+/* Esto convierte cualquier lista de definición en un grid de 2 columnas */
+.reveal dl {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+}
+
+.reveal dt {
+  grid-column: 1;
+  font-weight: bold;
+}
+
+.reveal dd {
+  grid-column: 2;
+  margin: 0 !important;
+}

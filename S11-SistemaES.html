@@ -11,172 +11,206 @@
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/dracula.css" id="theme"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme"/>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/zenburn.css"/>
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-    if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-    }
-</script>
-</head>
+<link rel="stylesheet" href="./css/theme/swiss.css"/>
+
+<link rel="stylesheet" href="./css/theme/dracula-extra.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/zenburn.css"/></head>
 <body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide"><h1 class="title">S11 — Sistemas de Entrada/Salida</h1><p class="subtitle"></p>
-<h2 class="author">Grupo 7 - Grupo 8</h2><h2 class="date">2026-07-07</h2><p class="date">Created: 2026-07-07 mar 21:49</p>
+<h2 class="author">Grupo 7 - Grupo 8</h2><p class="date">Created: 2026-07-09 jue 01:10</p>
 </section>
 <section>
-<section id="slide-org3264615">
-<h2 id="org3264615">G7 — Sistemas de Entrada/Salida</h2>
-<div class="outline-text-2" id="text-org3264615">
+<section id="slide-org5aebdfe">
+<h2 id="org5aebdfe">G7 — Sistemas de Entrada/Salida</h2>
+<p>
+La <b>arquitectura de E/S</b> de un computador es su interfaz con el
+exterior. Esta arquitectura permite una forma sistemática de controlar
+su interacción con el mundo exterior a la vez que proporciona al
+sistema operativo la información necesaria para para gestionar
+perifericos
+Para ello, existen <b>3 técnicas principales</b>:
+</p>
+<ul>
+<li class="fragment appear"><code>E/S Programada</code></li>
+<li class="fragment appear"><code>E/S mediante interrupciones</code></li>
+<li class="fragment appear"><code>Acceso directo a memoria (DMA)</code></li>
+
+</ul>
+</section>
+<section id="slide-orgdb7b758">
+<h3 id="orgdb7b758">Modulo de E/S</h3>
+<p>
+Elemento clave de un computador junto al procesador y la
+memoria. Permite y gestiona la comunicación entre los <b>periféricos</b> y
+los <b>buses del sistema</b>
+</p>
+</section>
+<section id="slide-orgb0a64e9">
+<h4 id="orgb0a64e9">¿Por que no conectar directamente?</h4>
+<ul>
+<li class="fragment appear">Amplia <b>variedad</b> con funcionamiento variable.</li>
+<li class="fragment appear">Desincronización de <b>velocidades</b>.</li>
+<li class="fragment appear">Distintos <b>formatos</b> de datos</li>
+
+</ul>
+</section>
+<section id="slide-orgf40e312">
+<h4 id="orgf40e312">Funciones módulo</h4>
+<ul>
+<li class="fragment appear">Realizar la interfaz entre <b>procesador</b> y <b>memoria</b> a través del bus del sistema</li>
+<li class="fragment appear">Realizar la interfaz entre uno o más <b>perifericos</b></li>
+
+</ul>
+</section>
+<section id="slide-orgf77db62">
+<h4 id="orgf77db62">Funciones módulo (2)</h4>
+
+<div id="org978138c" class="figure">
+<p><img src="images/funcionesModuloES.png" alt="funcionesModuloES.png" style="max-height: 70vh; object-fit: contain;" />
+</p>
+<p><span class="figure-number">Figura 1: </span>Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.</p>
 </div>
 </section>
-<section id="slide-orgcba5478">
-<h3 id="orgcba5478">Introducción (11, 270) (7, 229)</h3>
-</section>
-<section id="slide-org9fcf9d2">
-<h3 id="org9fcf9d2">Dispositivos Externos</h3>
-<p>
+<section id="slide-org10c80da">
+<h3 id="org10c80da">Dispositivos Externos</h3>
+<p class="columns-2">
 Este es un ejemplo de como va a quedar la diapo con el 50% de tamaño
 maximo
 </p>
 
-<div id="orgcb67348" class="figure">
+<div id="orgef30503" class="figure">
 <p><img src="images/logoEpn.jpg" alt="logoEpn.jpg" style="max-height: 70vh; object-fit: contain;" />
 </p>
 </div>
 </section>
-<section id="slide-org6b7d3cc">
-<h3 id="org6b7d3cc">Teclado/Monitor</h3>
+<section id="slide-org7251ade">
+<h3 id="org7251ade">Teclado/Monitor</h3>
 </section>
-<section id="slide-org8b79718">
-<h3 id="org8b79718">Controlador de Disco (Disk Drive)</h3>
-</section>
-</section>
-<section>
-<section id="slide-org793c1f3">
-<h2 id="org793c1f3">G7 — Módulos de E/S</h2>
-<div class="outline-text-2" id="text-org793c1f3">
-</div>
-</section>
-<section id="slide-org215f9a5">
-<h3 id="org215f9a5">Módulos de E/S (11, 273) (7, 236)</h3>
-</section>
-<section id="slide-org71b96ba">
-<h3 id="org71b96ba">Funciones</h3>
-</section>
-<section id="slide-org918fdcb">
-<h3 id="org918fdcb">Estructura de Módulos de E/S</h3>
+<section id="slide-orge639351">
+<h3 id="orge639351">Controlador de Disco (Disk Drive)</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgdd2298e">
-<h2 id="orgdd2298e">G7 — E/S Programada</h2>
-<div class="outline-text-2" id="text-orgdd2298e">
+<section id="slide-org335d979">
+<h2 id="org335d979">G7 — Módulos de E/S</h2>
+<div class="outline-text-2" id="text-org335d979">
 </div>
 </section>
-<section id="slide-orga0e24c2">
-<h3 id="orga0e24c2">E/S Programada (11, 276) (7, 239)</h3>
+<section id="slide-org623d01e">
+<h3 id="org623d01e">Módulos de E/S (11, 273) (7, 236)</h3>
 </section>
-<section id="slide-orgfb0b7f5">
-<h3 id="orgfb0b7f5">Comandos de E/S</h3>
+<section id="slide-orgb8ca1e0">
+<h3 id="orgb8ca1e0">Funciones</h3>
 </section>
-<section id="slide-org3953b33">
-<h3 id="org3953b33">Instrucciones de E/S</h3>
+<section id="slide-org1d4a733">
+<h3 id="org1d4a733">Estructura de Módulos de E/S</h3>
 </section>
 </section>
 <section>
-<section id="slide-org445bfe5">
-<h2 id="org445bfe5">G7 — E/S mediante Interrupción</h2>
-<div class="outline-text-2" id="text-org445bfe5">
+<section id="slide-org9e7a040">
+<h2 id="org9e7a040">G7 — E/S Programada</h2>
+<div class="outline-text-2" id="text-org9e7a040">
 </div>
 </section>
-<section id="slide-orgc55d5f3">
-<h3 id="orgc55d5f3">E/S mediante Interrupción (11, 280) (7, 243)</h3>
+<section id="slide-org14638fd">
+<h3 id="org14638fd">E/S Programada (11, 276) (7, 239)</h3>
 </section>
-<section id="slide-org093e002">
-<h3 id="org093e002">Procesamiento de la Interrupción</h3>
+<section id="slide-org19b1f2e">
+<h3 id="org19b1f2e">Comandos de E/S</h3>
 </section>
-<section id="slide-orgf913371">
-<h3 id="orgf913371">Problemas de diseño</h3>
+<section id="slide-orge1104b0">
+<h3 id="orge1104b0">Instrucciones de E/S</h3>
 </section>
 </section>
 <section>
-<section id="slide-org1c6699e">
-<h2 id="org1c6699e">G7 — Acceso directo a Memoria DMA</h2>
-<div class="outline-text-2" id="text-org1c6699e">
+<section id="slide-orgbc3f842">
+<h2 id="orgbc3f842">G7 — E/S mediante Interrupción</h2>
+<div class="outline-text-2" id="text-orgbc3f842">
 </div>
 </section>
-<section id="slide-orgd22f2ea">
-<h3 id="orgd22f2ea">Acceso directo a Memoria DMA (11, 290) (7, 251)</h3>
+<section id="slide-org970ef51">
+<h3 id="org970ef51">E/S mediante Interrupción (11, 280) (7, 243)</h3>
 </section>
-<section id="slide-org08736e8">
-<h3 id="org08736e8">Funcionalidad de DMA</h3>
+<section id="slide-org43103cd">
+<h3 id="org43103cd">Procesamiento de la Interrupción</h3>
+</section>
+<section id="slide-org4de7a51">
+<h3 id="org4de7a51">Problemas de diseño</h3>
 </section>
 </section>
 <section>
-<section id="slide-org79e7453">
-<h2 id="org79e7453">G8 — Canales y Procesadores de E/S</h2>
-<div class="outline-text-2" id="text-org79e7453">
+<section id="slide-orgf614650">
+<h2 id="orgf614650">G7 — Acceso directo a Memoria DMA</h2>
+<div class="outline-text-2" id="text-orgf614650">
 </div>
 </section>
-<section id="slide-org7bf9415">
-<h3 id="org7bf9415">Canales y Procesadores de E/S</h3>
+<section id="slide-org4853ffe">
+<h3 id="org4853ffe">Acceso directo a Memoria DMA (11, 290) (7, 251)</h3>
 </section>
-<section id="slide-org29fdf1c">
-<h3 id="org29fdf1c">Evolución de las funciones E/S</h3>
-</section>
-<section id="slide-org2b6e531">
-<h3 id="org2b6e531">Características de los canales E/S</h3>
+<section id="slide-org570f9fb">
+<h3 id="org570f9fb">Funcionalidad de DMA</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgab4b677">
-<h2 id="orgab4b677">G8 — Estándares de interconexión externa</h2>
-<div class="outline-text-2" id="text-orgab4b677">
+<section id="slide-orge572820">
+<h2 id="orge572820">G8 — Canales y Procesadores de E/S</h2>
+<div class="outline-text-2" id="text-orge572820">
 </div>
 </section>
-<section id="slide-org676fdac">
-<h3 id="org676fdac">USB</h3>
+<section id="slide-org7dfa4bc">
+<h3 id="org7dfa4bc">Canales y Procesadores de E/S</h3>
 </section>
-<section id="slide-org7cc0666">
-<h3 id="org7cc0666">FireWire</h3>
+<section id="slide-orgdba9dc3">
+<h3 id="orgdba9dc3">Evolución de las funciones E/S</h3>
 </section>
-<section id="slide-orgfa87c93">
-<h3 id="orgfa87c93">SCSI</h3>
+<section id="slide-org8e65d6a">
+<h3 id="org8e65d6a">Características de los canales E/S</h3>
 </section>
-<section id="slide-org932721b">
-<h3 id="org932721b">Thunderbolt</h3>
 </section>
-<section id="slide-org22463db">
-<h3 id="org22463db">SATA</h3>
+<section>
+<section id="slide-orgd46903b">
+<h2 id="orgd46903b">G8 — Estándares de interconexión externa</h2>
+<div class="outline-text-2" id="text-orgd46903b">
+</div>
 </section>
-<section id="slide-org17c454e">
-<h3 id="org17c454e">Ethernet</h3>
+<section id="slide-orgcc2f8e4">
+<h3 id="orgcc2f8e4">USB</h3>
 </section>
-<section id="slide-org4b37f39">
-<h3 id="org4b37f39">Wi-Fi</h3>
+<section id="slide-org6e48faa">
+<h3 id="org6e48faa">FireWire</h3>
+</section>
+<section id="slide-org4c6cc2e">
+<h3 id="org4c6cc2e">SCSI</h3>
+</section>
+<section id="slide-org8b79da3">
+<h3 id="org8b79da3">Thunderbolt</h3>
+</section>
+<section id="slide-org31e92d3">
+<h3 id="org31e92d3">SATA</h3>
+</section>
+<section id="slide-orgccf22c1">
+<h3 id="orgccf22c1">Ethernet</h3>
+</section>
+<section id="slide-orgde5885b">
+<h3 id="orgde5885b">Wi-Fi</h3>
 </section>
 </section>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+
 
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-
-// Optional libraries used to extend on reveal.js
-dependencies: [
- { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
-
+plugins: [RevealHighlight],
+width:"100%", height:"100%", margin:0, minScale:1, maxScale:1
 });
 
 </script>
