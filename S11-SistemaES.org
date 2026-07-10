@@ -86,9 +86,7 @@ maximo
 ** Controlador de Disco (Disk Drive)
 
 
-* G7 — Módulos de E/S
-
-** Funciones del módulo de E/S
+** G7 - Funciones del módulo de E/S
 
 Las principales funciones de un módulo de E/S son:
 
@@ -108,12 +106,10 @@ Las principales funciones de un módulo de E/S son:
 3. El procesador solicita la transferencia del dato
 4. El módulo obtiene un dato
 5. Los datos se transfieren al procesador
-
+#+ATTR_REVEAL: :frag (appear)
 *La comunicación con el procesador implica:*
-- Decodificación de órdenes  -Información de Estado
-- Datos                      -
-
-
+- Decodificación de órdenes, Datos
+-Información del Estado, Reconocimiento de Dirección
 
 ** Almacenamiento Temporal y detección de errores
 
@@ -140,9 +136,7 @@ Las principales funciones de un módulo de E/S son:
 
 
 
-* G7 — E/S Programada
-
-** E/S Programada
+** G7 — E/S Programada
 
 La CPU controla completamente la operación de E/S.
 
