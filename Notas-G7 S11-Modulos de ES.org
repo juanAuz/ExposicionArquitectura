@@ -133,3 +133,98 @@ consultando continuamente el estado del dispositivo.
 - [ ] Escribir el resumen  de la exposición 1
 
 #+print_bibliography:
+
+* 2026-07-10 Acceso Directo a Memoria (DMA)
+
+** Preguntas y Términos clave (Cue):
+- ¿Qué es el DMA y por qué surge?
+- ¿Qué problemas tienen la E/S programada y por interrupciones?
+- ¿Qué es el Cycle Stealing?
+- ¿Qué información proporciona el CPU al DMA?
+- ¿En qué se diferencia el DMA de una interrupción?
+- ¿Qué configuraciones de DMA existen?
+- ¿Qué es el Intel 8237A y por qué se llama "fly-by"?
+- ¿Qué señales utiliza?
+- ¿Cuántos canales y registros tiene?
+
+Términos clave:
+- DMA
+- Cycle Stealing
+- HOLD / HLDA
+- DREQ / DACK
+- Controlador fly-by
+- Canal DMA
+- Registros: Orden, Estado, Modo y Máscara
+
+** Notas (Notes):
+
+*** Motivación
+La E/S programada y por interrupciones presentan dos limitaciones:
+- La velocidad depende del procesador.
+- El CPU participa en cada transferencia.
+
+Para mover grandes cantidades de datos se utiliza el DMA.
+
+*** ¿Qué es el DMA?
+El DMA permite transferir datos entre memoria y dispositivos de E/S sin la intervención constante del CPU.
+
+Proceso:
+1. Solicita el control del bus.
+2. Realiza la transferencia.
+3. Devuelve el bus al procesador.
+
+Puede usar el bus cuando el CPU no lo ocupa o mediante **Cycle Stealing**, donde toma temporalmente el bus para realizar una transferencia.
+
+*** Información que recibe del CPU
+Antes de iniciar la transferencia, el CPU indica:
+- Lectura o escritura.
+- Dispositivo de E/S.
+- Dirección inicial de memoria.
+- Cantidad de datos a transferir.
+
+Después de configurarlo, el CPU solo interviene al inicio y al final.
+
+*** DMA vs. interrupción
+El DMA detiene al procesador solo durante un ciclo de bus.
+
+- No guarda contexto.
+- No utiliza PSW ni pila.
+
+Las interrupciones solo se atienden al finalizar una instrucción; el DMA puede tomar el bus entre ciclos de bus.
+
+*** Configuraciones del DMA
+- **Bus único, DMA independiente:** todos comparten el mismo bus.
+- **Bus único, DMA-E/S integrados:** los periféricos se conectan directamente al DMA.
+- **DMA con bus de E/S propio:** el DMA administra un bus exclusivo para los periféricos.
+
+*** Controlador Intel 8237A
+Controlador DMA para computadores con procesadores de la familia 80x86.
+
+Se denomina **fly-by** porque los datos viajan directamente entre memoria y periférico; el controlador solo coordina la transferencia.
+
+Señales:
+- **HOLD / HLDA:** comunicación entre DMA y CPU.
+ - **DREQ / DACK:** comunicación entre periférico y DMA.
+
+*** Secuencia de transferencia
+1. El periférico envía DREQ.
+2. El DMA solicita el bus (HRQ).
+3. La CPU responde con HLDA.
+4. El DMA activa DACK.
+5. Transfiere los datos y decrementa el contador.
+6. Al finalizar, libera el bus.
+
+*** Canales y registros
+- Cuatro canales DMA (0–3), programables de forma independiente.
+- Cinco registros principales: Orden, Estado, Modo, Máscara simple y Máscara completa.
+
+** Resumen (Summary):
+El DMA permite transferir datos entre memoria y dispositivos de E/S sin la intervención constante del procesador,
+mejorando el rendimiento frente a la E/S programada y por
+interrupciones. El Intel 8237A coordina estas transferencias mediante
+las señales HOLD/HLDA y DREQ/DACK, utilizando cuatro canales y cinco
+registros de control.
+ 
+* TODO Mis Tareas [0%]
+- [ ] Leer este documento
+- [ ] Escribir el resumen de la exposición 7
