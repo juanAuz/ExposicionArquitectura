@@ -6,7 +6,7 @@
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 27.1 (Org mode 9.3)
-#+options: toc:nil num:nil H:3  reveal_center:nil
+#+options: toc:nil num:nil H:3  reveal_center:nil html-postamble:nil date:nil p:nil
 #+OPTIONS: reveal_slide_level:2
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_THEME: black
@@ -15,6 +15,7 @@
 #+REVEAL_TRANS: slide
 #+REVEAL_PLUGINS: (highlight)
 #+REVEAL_INIT_OPTIONS: width:"100%", height:"100%", margin:0, minScale:1, maxScale:1
+#+OPTIONS: reveal_title_slide:"<h1>%t</h1><h2>%a</h2>"
 
 * Indicaciones :noexport:
 ** Indicaciones
@@ -46,7 +47,7 @@
 - Se ha de utilizar como base la bibliografía recomendada, pero puede
   consultar bibliografía adicional.
 
-* G7 — Sistemas de Entrada/Salida
+* Sistemas de Entrada/Salida
 La *arquitectura de E/S* de un computador es su interfaz con el
 exterior. Esta arquitectura permite una forma sistemática de controlar
 su interacción con el mundo exterior a la vez que proporciona al
@@ -61,32 +62,88 @@ Para ello, existen *3 técnicas principales*:
 Elemento clave de un computador junto al procesador y la
 memoria. Permite y gestiona la comunicación entre los *periféricos* y
 los *buses del sistema*
+
+~Permite:~
+#+ATTR_REVEAL: :frag (appear)
+- Realizar la interfaz entre *procesador* y *memoria* a través del bus del sistema
+- Realizar la interfaz entre uno o más *perifericos*
+*** Funciones módulo
+#+attr_html: :style max-height: 70vh; object-fit: contain;
+#+CAPTION: Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.
+[[file:images/funcionesModuloES.png]]
 *** ¿Por que no conectar directamente?
 #+ATTR_REVEAL: :frag (appear)
 - Amplia *variedad* con funcionamiento variable.
 - Desincronización de *velocidades*.
 - Distintos *formatos* de datos
-*** Funciones módulo
-#+ATTR_REVEAL: :frag (appear)
-- Realizar la interfaz entre *procesador* y *memoria* a través del bus del sistema
-- Realizar la interfaz entre uno o más *perifericos*
-*** Funciones módulo (2)
-#+attr_html: :style max-height: 70vh; object-fit: contain;
-#+CAPTION: Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.
-[[file:images/funcionesModuloES.png]]
+#+attr_html: :style max-height: 50vh; object-fit: contain;
+[[file:images/importanciaModulo.png]]
 ** Dispositivos Externos
-#+ATTR_HTML: :class columns-2
-Este es un ejemplo de como va a quedar la diapo con el 50% de tamaño
-maximo
-#+attr_html: :style max-height: 70vh; object-fit: contain;
-[[file:images/logoEpn.jpg]]
-** Teclado/Monitor
+Los dispositivos externos proporcionan una forma de intercambiar datos
+entre el *exterior* y el computador.
 
+~Conexión:~
+#+ATTR_REVEAL: :frag (appear)
+- Se conectan mediante un *enlace* a un módulo de E/S
+- El enlace intercambia señales de *control*, *estado* y *datos*
+- También llamados *dispositivos periféricos*
+*** Clasificación de dispositivos externos
+- *Interacción con humanos*: comunicación con el usuario (VDT, impresoras)
+- *Interacción con máquinas*: discos, cintas, sensores, actuadores (robótica)
+- *De comunicación*: comunicación con dispositivos remotos
+*** Señales de control
+Determinan la *función* que debe realizar el dispositivo
+#+ATTR_REVEAL: :frag (appear)
+- *ENTRADA / LECTURA* ("INPUT" / "READ"): enviar datos al módulo de E/S
+- *SALIDA / ESCRITURA* ("OUTPUT" / "WRITE"): aceptar datos desde el módulo de E/S
+- Indicar *estado* o ejecutar una *función de control* particular
+  ~(ej. posicionar una cabeza de disco)~
+*** Señales de estado y datos
+#+ATTR_REVEAL: :frag (appear)
+- ~Datos~: conjunto de bits enviados o recibidos del módulo de E/S
+- ~Estado~: indica la condición del dispositivo
+  - *LISTO / NO-LISTO* ("READY/NOT-READY")
+**** ~Componentes internos~
+#+ATTR_REVEAL: :frag (appear)
+- *Lógica de control*: controla la operación según las órdenes del módulo de E/S
+- *Transductor*: convierte señales eléctricas en  otra forma de energía
+- *Buffer*: almacena temporalmente el dato en tránsito
+  *(tamaño típico: 8 a 16 bits)*
+*** Diagrama de Bloques de un dispositivo externo
+#+attr_html: :style max-height: 70vh; object-fit: contain;
+#+CAPTION: Figura 7.2. Estructura de un dispositivo externo. Tomado de Stallings 7ma ed.
+[[file:images/diagramaDispExt.png]]
+** Teclado/Monitor
+Forma más *común* de interacción usuario/computador
+#+ATTR_REVEAL: :frag (appear)
+- *Teclado*: entrada del usuario
+- *Monitor*: muestra entrada y datos del computador
+- Unidad básica de intercambio: el *carácter*
+**** ~Flujo de la señal~
+#+ATTR_REVEAL: :frag (appear)
+- *Entrada*: tecla → transductor → código IRA → módulo de E/S
+- *Salida*: módulo de E/S → código IRA → transductor → carácter en pantalla
+*** Código IRA
+#+ATTR_REVEAL: :frag (appear)
+- *7 bits* → 128 caracteres posibles ~(similar a ASCII)~
+- Dos tipos: *imprimibles* (letras, números) y *de control* (ej. retorno de carro)
+- Ejemplo: la letra *K* = ~1001011~
+*** Tabla código ASCII
+#+attr_html: :style max-height: 70vh; object-fit: contain;
+#+CAPTION: Figura 7.3. Tabla del código ASCII. Tomado de Stallings 7ma ed.
+[[file:images/codigoASCII.png]]
 
 ** Controlador de Disco (Disk Drive)
+Contiene la electrónica para:
+#+ATTR_REVEAL: :frag (appear)
+- Intercambiar señales de *datos*, *control* y *estado* con el módulo de E/S
+- Controlar el mecanismo de *lectura/escritura* del disco
+**** ~Tipos de disco~
+#+ATTR_REVEAL: :frag (appear)
+- *Cabeza fija*: el transductor convierte patrones magnéticos ↔ bits del buffer
+- *Cabeza móvil*: además mueve el brazo *radialmente* sobre la superficie del disco
 
-
-* G7 — Módulos de E/S
+* Módulos de E/S
 
 ** Funciones del módulo de E/S
 
@@ -140,7 +197,7 @@ Las principales funciones de un módulo de E/S son:
 
 
 
-* G7 — E/S Programada
+* E/S Programada
 
 ** E/S Programada
 
@@ -173,7 +230,7 @@ Polling (espera activa)
 #+ATTR_REVEAL: :frag (appear)
 - La CPU verifica el estado del dispositivo, si no está listo continúa esperando
 
-* G7 — E/S mediante Interrupción
+* E/S mediante Interrupción
 
 El módulo de E/S *interrumpe* al procesador cuando tiene el dato listo.
 
@@ -211,7 +268,6 @@ El módulo de E/S *interrumpe* al procesador cuando tiene el dato listo.
 8. El programa original continúa
 
 ** Problemas de diseño
-
 *¿Cómo saber qué dispositivo interrumpió?*
 
 #+ATTR_REVEAL: :frag (appear)
@@ -225,7 +281,7 @@ El módulo de E/S *interrumpe* al procesador cuando tiene el dato listo.
 #+ATTR_REVEAL: :frag (appear)
 - Se asignan *niveles de prioridad* a cada dispositivo
 
-* G7 — Acceso directo a Memoria DMA
+* Acceso directo a Memoria DMA
 
 [[file:images/figura-7.4.png]]
 

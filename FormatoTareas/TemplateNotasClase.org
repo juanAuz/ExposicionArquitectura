@@ -48,21 +48,82 @@ ARQUITECTURA DE COMPUTADORES}
 #+begin_comment
 Este comentario contiene la estructura básica para toma de notas de
 acuerdo a la metodología explicada por la Universidad de Cornell.
-* 2024-xx-xx Título de la clase/charla
+* 2026-07-10 Sistemas de Entrada/Salida (Cap. 7 Stallings)
+
 ** Preguntas y Términos clave (Cue):
-- término clave1 ::
-- término clave2 ::
+
+- arquitectura de E/S ::
+- módulo de E/S ::
+- dispositivo periférico ::
+- código IRA ::
+- buffer ::
+- transductor ::
+- TODO :: ¿por qué el buffer típico es de 8 a 16 bits y no más grande?
 ** Notas (Notes):
-- nota1
-- nota2
-  - subnota
-  - subnota
-- nota3
-  1. numerado
-  2. numerado
+
+- La *arquitectura de E/S* es la interfaz del computador con el exterior
+  - Controla la interacción con periféricos
+  - Da al SO la info necesaria para gestionarlos
+- *3 técnicas principales de E/S*
+  1. E/S Programada
+  2. E/S mediante interrupciones
+  3. Acceso directo a memoria (DMA)
+- *Módulo de E/S*: tercer elemento clave junto al procesador y la memoria
+  - No es solo un conector mecánico, tiene "inteligencia" (lógica)
+  - Función 1: interfaz procesador con  memoria vía bus del sistema
+  - Función 2: interfaz con uno o más periféricos vía enlaces específicos
+- *¿Por qué no conectar los periféricos directamente al bus?*
+  - Gran variedad de periféricos, funcionamiento muy distinto
+  - Velocidades desincronizadas (unos más lentos, otros más rápidos que memoria/CPU)
+  - Formatos y tamaños de palabra distintos
+- *Dispositivos externos*
+  - Se conectan al módulo de E/S mediante un enlace
+  - El enlace transporta señales de: control, estado, datos
+  - Clasificación:
+    1. Interacción con humanos (VDT, impresoras)
+    2. Interacción con máquinas (discos, cintas, sensores, actuadores)
+    3. De comunicación (dispositivos remotos)
+- *Señales de control*: determinan la función del dispositivo
+  - ENTRADA/LECTURA ("INPUT"/"READ")
+  - SALIDA/ESCRITURA ("OUTPUT"/"WRITE")
+  - Indicar estado o función de control particular (ej. posicionar cabeza de disco)
+- *Señales de estado y datos*
+  - Datos: bits enviados/recibidos del módulo de E/S
+  - Estado: LISTO / NO-LISTO ("READY"/"NOT-READY")
+- *Componentes internos del dispositivo externo*
+  - Lógica de control: controla la operación según órdenes del módulo de E/S
+  - Transductor: convierte señales eléctricas <-> otra forma de energía
+  - Buffer: almacena temporalmente el dato en tránsito (típico 8-16 bits)
+- *Teclado/Monitor*: forma más común de interacción usuario-computador
+  - Unidad básica de intercambio: el carácter
+  - Flujo entrada: tecla -> transductor -> código IRA -> módulo de E/S
+  - Flujo salida: módulo de E/S -> código IRA -> transductor -> carácter en pantalla
+- *Código IRA*
+  - 7 bits -> 128 caracteres posibles (similar a ASCII)
+  - Dos tipos: imprimibles (letras, números) y de control (ej. retorno de carro)
+  - Ejemplo: letra K = 1001011
+  - El código IRA suele almacenarse con 8 bits (octeto/byte), el octavo bit es de paridad
+- *Controlador de Disco (Disk Drive)*
+  - Contiene la electrónica para intercambiar señales de datos/control/estado con el módulo de E/S
+  - Controla el mecanismo de lectura/escritura
+  - Tipos:
+    1. Cabeza fija: transductor convierte patrones magnéticos <-> bits del buffer
+    2. Cabeza móvil: además mueve el brazo radialmente sobre la superficie del disco
+** Enlaces de Interés
+- Stallings, W. *Organización y Arquitectura de Computadores*, 7ma ed., Cap. 7
 ** Resumen (Summary):
-Aquí se realiza un breve resumen
-#+end_comment
+El módulo de E/S es el tercer componente clave de un computador (junto
+al procesador y la memoria) y actúa como intermediario "inteligente"
+entre el bus del sistema y los periféricos, evitando conectar estos
+últimos directamente debido a su gran variedad, distintas velocidades
+y formatos de datos. Los dispositivos externos se clasifican según su
+interacción (humanos, máquinas, comunicación) y se comunican mediante
+señales de control, estado y datos, procesadas internamente por lógica
+de control, transductor y buffer. Dos ejemplos concretos son el par
+teclado/monitor, que usa el código IRA de 7 bits (128 caracteres) para
+representar cada carácter, y el controlador de disco, que puede ser de
+cabeza fija o móvil según cómo mueva el transductor sobre la
+superficie magnética.
 * 2024-xx-xx Título de la clase/charla
 ** Preguntas y Términos clave (Cue):
 - ¿qué es el sistema de notas de U. Cornell? ::
