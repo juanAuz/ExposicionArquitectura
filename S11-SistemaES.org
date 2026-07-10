@@ -137,7 +137,7 @@ La comunicación con el procesador implica:
 ** Estructura de un módulo de E/S
 
 #+CAPTION: Diagrama de bloques de un módulo de E/S
-[[file:images/DiagramaFlujo.png]]
+[[file:images/BloquesES.png]]
 
 
 
@@ -169,7 +169,7 @@ Polling (espera activa)
 ** Funcionamiento de la E/S Programada
 
 #+CAPTION: Flujo de la E/S Programada
-[[file:images/Diagramaflujo.png]]
+[[file:images/DiagramaFlujo.png]]
 
 #+ATTR_REVEAL: :frag (appear)
 - La CPU verifica el estado del dispositivo
