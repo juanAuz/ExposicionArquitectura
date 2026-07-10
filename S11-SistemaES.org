@@ -10,8 +10,8 @@
 #+OPTIONS: reveal_slide_level:2
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_THEME: black
-#+REVEAL_EXTRA_CSS: ./css/theme/swiss.css
-#+REVEAL_EXTRA_CSS: ./css/theme/dracula-extra.css
+#+REVEAL_EXTRA_CSS: https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/css/theme/swiss.css
+#+REVEAL_EXTRA_CSS: https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/css/theme/dracula-extra.css
 #+REVEAL_TRANS: slide
 #+REVEAL_PLUGINS: (highlight)
 #+REVEAL_INIT_OPTIONS: width:"100%", height:"100%", margin:0, minScale:1, maxScale:1
@@ -76,6 +76,7 @@ los *buses del sistema*
 - Amplia *variedad* con funcionamiento variable.
 - Desincronización de *velocidades*.
 - Distintos *formatos* de datos
+#+ATTR_REVEAL: :frag (appear)
 #+attr_html: :style max-height: 50vh; object-fit: contain;
 [[file:images/importanciaModulo.png]]
 ** Dispositivos Externos
@@ -103,6 +104,7 @@ Determinan la *función* que debe realizar el dispositivo
 - ~Datos~: conjunto de bits enviados o recibidos del módulo de E/S
 - ~Estado~: indica la condición del dispositivo
   - *LISTO / NO-LISTO* ("READY/NOT-READY")
+  #+ATTR_REVEAL: :frag (appear)
 **** ~Componentes internos~
 #+ATTR_REVEAL: :frag (appear)
 - *Lógica de control*: controla la operación según las órdenes del módulo de E/S
@@ -166,22 +168,22 @@ Las principales funciones de un módulo de E/S son:
 4. El módulo obtiene un dato
 5. Los datos se transfieren al procesador
 
-*La comunicación con el procesador implica:*
-- Decodificación de órdenes  -Información de Estado
-- Datos                      -
+** La comunicación con el procesador implica:
+- Decodificación de órdenes
+- Información de Estado
+- Datos                      
 
 
+*** Almacenamiento Temporal y detección de errores
 
-** Almacenamiento Temporal y detección de errores
-
-*Buffer de datos*
+*** Buffer de datos
 
 #+ATTR_REVEAL: :frag (appear)
 - Compensa diferencias de velocidad
 - Almacena temporalmente los datos
 - Sincroniza CPU y periféricos
 
-*Detección de errores*
+*** Detección de errores
 
 #+ATTR_REVEAL: :frag (appear)
 - Fallos del dispositivo
@@ -208,8 +210,8 @@ La CPU controla completamente la operación de E/S.
 - Consulta continuamente el estado
 - Espera hasta finalizar la operación
 - No utiliza interrupciones
-
-Polling (espera activa)
+#+ATTR_REVEAL: :frag (appear)
+*Polling (espera activa)*
 
 
 ** Órdenes de E/S
@@ -223,7 +225,7 @@ Polling (espera activa)
 
 
 ** Funcionamiento de la E/S Programada
-#+ATTR_HTML: :style width: 70%; height: auto;
+#+ATTR_HTML: :style width: 40%; height: auto;
 #+CAPTION: Flujo de la E/S Programada
 [[file:images/DiagramaFlujo.png]]
 
