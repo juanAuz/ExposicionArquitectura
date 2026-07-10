@@ -10,8 +10,8 @@
 #+OPTIONS: reveal_slide_level:2
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_THEME: black
-#+REVEAL_EXTRA_CSS: https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/css/theme/swiss.css
-#+REVEAL_EXTRA_CSS: https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/css/theme/dracula-extra.css
+#+REVEAL_EXTRA_CSS: ./css/theme/swiss.css
+#+REVEAL_EXTRA_CSS: ./css/theme/dracula-extra.css
 #+REVEAL_TRANS: slide
 #+REVEAL_PLUGINS: (highlight)
 #+REVEAL_INIT_OPTIONS: width:"100%", height:"100%", margin:0, minScale:1, maxScale:1
@@ -86,7 +86,9 @@ maximo
 ** Controlador de Disco (Disk Drive)
 
 
-* G7 - Funciones del módulo de E/S
+* G7 — Módulos de E/S
+
+** Funciones del módulo de E/S
 
 Las principales funciones de un módulo de E/S son:
 
@@ -106,10 +108,12 @@ Las principales funciones de un módulo de E/S son:
 3. El procesador solicita la transferencia del dato
 4. El módulo obtiene un dato
 5. Los datos se transfieren al procesador
-#+ATTR_REVEAL: :frag (appear)
+
 *La comunicación con el procesador implica:*
-- Decodificación de órdenes, Datos
--Información del Estado, Reconocimiento de Dirección
+- Decodificación de órdenes  -Información de Estado
+- Datos                      -
+
+
 
 ** Almacenamiento Temporal y detección de errores
 
@@ -136,9 +140,10 @@ Las principales funciones de un módulo de E/S son:
 
 
 
-** G7 — E/S Programada
+* G7 — E/S Programada
 
-*** E/S Programada
+** E/S Programada
+
 La CPU controla completamente la operación de E/S.
 
 #+ATTR_REVEAL: :frag (appear)
@@ -168,12 +173,63 @@ Polling (espera activa)
 #+ATTR_REVEAL: :frag (appear)
 - La CPU verifica el estado del dispositivo, si no está listo continúa esperando
 
-* E/S mediante Interrupción
+* G7 — E/S mediante Interrupción
+
+El módulo de E/S *interrumpe* al procesador cuando tiene el dato listo.
+
+#+ATTR_REVEAL: :frag (appear)
+- El CPU *no espera* — continúa con otra tarea
+- El dispositivo *avisa* cuando está listo
+- Se evita el /polling/ (espera activa)
+
 ** E/S mediante Interrupción (11, 280) (7, 243)
+
+*Diferencia clave frente a E/S Programada:*
+
+| E/S Programada         | E/S por Interrupciones      |
+|------------------------+-----------------------------|
+| CPU pregunta sin parar | Dispositivo avisa al CPU    |
+| CPU bloqueado          | CPU libre para otras tareas |
+| Espera activa          | Espera pasiva               |
+
 ** Procesamiento de la Interrupción
+
+*Hardware:*
+
+#+ATTR_REVEAL: :frag (appear)
+1. Dispositivo envía señal de interrupción
+2. CPU termina la instrucción en curso
+3. CPU guarda *PC* y *PSW* en la pila
+4. CPU salta a la rutina de interrupción
+
+*Software:*
+
+#+ATTR_REVEAL: :frag (appear)
+5. Se guardan los registros del procesador
+6. Se procesa la interrupción
+7. Se restauran registros, PC y PSW
+8. El programa original continúa
+
 ** Problemas de diseño
+
+*¿Cómo saber qué dispositivo interrumpió?*
+
+#+ATTR_REVEAL: :frag (appear)
+- Múltiples líneas de interrupción
+- Consulta de software (/polling/)
+- Conexión en cadena (/daisy chain/)
+- Arbitraje de bus
+
+*¿A cuál atender si llegan varias a la vez?*
+
+#+ATTR_REVEAL: :frag (appear)
+- Se asignan *niveles de prioridad* a cada dispositivo
+
 * G7 — Acceso directo a Memoria DMA
-*Funcionalidad de DMA*
+
+[[file:images/figura-7.4.png]]
+
+** Funcionalidad de DMA
 El **DMA (Direct Memory Access)** es un módulo que permite realizar
 transferencias de datos entre memoria y dispositivos de E/S sin la
 intervención constante del procesador.
@@ -184,14 +240,9 @@ Para ello:
 - Libera el bus cuando termina.
 
 En *Cycle Stealing*, el DMA utiliza temporalmente el bus.
-** DMA vs E/S Programada vs E/S mediante Interrupción
-#+ATTR_HTML: :width 1500 
-[[file:images/figura-7.4.png]]
-** ¿Qué información le proporciona el CPU al DMA?
-- Tipo de operación
-- Dispositivo de entrada/salida
-- Transferencia de datos
-EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe No guarda contexto.
+** El procesador no se detiene igual que con una interrupción
+- EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
+- No guarda contexto.
 #+ATTR_HTML: :width 1000
 [[file:images/figura_7.12.png]]
 ** Configuraciones del DMA en el sistema
@@ -212,12 +263,13 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe No guarda con
 #+ATTR_HTML: :width 1000 
 [[file:images/inte.jpg]]
 ** Señales
-*Señales HOLD/HLDA (Controlaodr del DMA - CPU)*
-- ~HOLD~: DMA pide el bus
-- ~HLDA(Hold Acknowledge)~:Indica que se pueden usar los buses
+*Señales HOLD/HOLAD (Controlaodr del DMA - CPU)*
+- *HOLD*: DMA pide el bus
+- *HLDA(Hold Acknowledge)*:Indica que se pueden usar los buses
 *Señales DREQ/DACK (Periférico - Controlador del DMA*)
-- ~DREQ (DMA Request)~:El periférico solicita el DMA
-- ~DACK (DMA Acknowledge)~: El DMA indica que se van a empezar a transferir datos
+-*DREQ (DMA Request)*:El periférico solicita el DMA
+-*DACK (DMA Acknowledge)*: El DMA indica que se van a empezar a
+transferir datos
 ** Secuencia paso a paso
 1. Periférico activa *DREQ*
 2. Controlador activa *HRQ* (Hold request) hacia la CPU
@@ -225,10 +277,10 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe No guarda con
 4. Controlador activa *DACK*
 5. Transfiere byte a byte (MEMR/IOW), decrementando el contador
 6. Al llegar a cero, desactiva el HRQ y devuelve el bus
-** Canales y registros del 8237 A
-- Dispone de cuatro canales de DMA independientes numerados del 0 al 3
-- Dispone de 5 registros de control para programar y controlar la operación del DMA en cada uno de los canales.
-#+ATTR_HTML: :width 1100 
+** Canales y registros del 8237 a
+Dispone de cuatro canales de DMA independientes numerados del 0 al 3
+Dispone de 5 registros de control para programar y controlar la
+operación del DMA en cada uno de los canales.
 [[file:images/tabla 7.4.png]]
 * G8 — Canales y Procesadores de E/S
 ** Canales y Procesadores de E/S
