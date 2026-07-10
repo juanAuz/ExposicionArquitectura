@@ -81,6 +81,8 @@ maximo
 #+attr_html: :style max-height: 70vh; object-fit: contain;
 [[file:images/logoEpn.jpg]]
 ** Teclado/Monitor
+
+
 ** Controlador de Disco (Disk Drive)
 
 
@@ -98,7 +100,25 @@ maximo
 ** Problemas de diseño
 * G7 — Acceso directo a Memoria DMA
 ** Acceso directo a Memoria DMA (11, 290) (7, 251)
+
 ** Funcionalidad de DMA
+El **DMA (Direct Memory Access)** es un módulo que permite realizar
+transferencias de datos entre memoria y dispositivos de E/S sin la
+intervención constante del procesador.
+
+Para ello:
+- Solicita el control del bus del sistema al CPU.
+- Realiza la transferencia de datos.
+- Libera el bus cuando termina.
+
+En *Cycle Stealing*, el DMA utiliza temporalmente el bus.
+** El procesador no se detiene igual que con una interrupción
+- EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
+- No guarda contexto.
+#+ATTR_HTML: :width 900
+[[file:images/figura_7.12.png]]
+
+
 
 * G8 — Canales y Procesadores de E/S
 ** Canales y Procesadores de E/S
