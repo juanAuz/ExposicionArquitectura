@@ -109,24 +109,22 @@ Las principales funciones de un módulo de E/S son:
 4. El módulo obtiene un dato
 5. Los datos se transfieren al procesador
 
-La comunicación con el procesador implica:
-- Decodificación de órdenes
-- Datos
-- Información de estado
-- Reconocimiento de Dirección
+*La comunicación con el procesador implica:*
+- Decodificación de órdenes  -Información de Estado
+- Datos                      -
 
 
 
 ** Almacenamiento Temporal y detección de errores
 
-* Buffer de datos
+*Buffer de datos*
 
 #+ATTR_REVEAL: :frag (appear)
 - Compensa diferencias de velocidad
 - Almacena temporalmente los datos
 - Sincroniza CPU y periféricos
 
-* Detección de errores
+*Detección de errores*
 
 #+ATTR_REVEAL: :frag (appear)
 - Fallos del dispositivo
@@ -136,6 +134,7 @@ La comunicación con el procesador implica:
 
 ** Estructura de un módulo de E/S
 
+#+ATTR_HTML: :style width: 80%; height: auto;
 #+CAPTION: Diagrama de bloques de un módulo de E/S
 [[file:images/BloquesES.png]]
 
@@ -167,14 +166,12 @@ Polling (espera activa)
 
 
 ** Funcionamiento de la E/S Programada
-
+#+ATTR_HTML: :style width: 70%; height: auto;
 #+CAPTION: Flujo de la E/S Programada
 [[file:images/DiagramaFlujo.png]]
 
 #+ATTR_REVEAL: :frag (appear)
-- La CPU verifica el estado del dispositivo
-- Si no está listo, continúa esperando
-- Cuando está listo, transfiere los datos
+- La CPU verifica el estado del dispositivo, si no está listo continúa esperando
 
 ** E/S mediante Interrupción
 ** E/S mediante Interrupción (11, 280) (7, 243)
