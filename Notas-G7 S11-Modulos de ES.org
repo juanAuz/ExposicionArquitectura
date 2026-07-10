@@ -1,0 +1,135 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
+#+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+title: S11 - Modulos de E/S
+#+date:  2026-07-10
+#+author: Matías Palomeque
+#+email: 
+#+language: Español
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 27.1 (Org mode 9.7.5)
+#+cite_export: biblatex
+
+#+latex_class: article
+#+latex_class_options:
+#+latex_header:
+#+latex_header_extra:
+#+description:
+#+keywords:
+#+subtitle:
+#+latex_footnote_command: \footnote{%s%s}
+#+latex_engraved_theme:
+#+latex_compiler: pdflatex
+
+#+latex_header: \usepackage{fancyhdr}
+#+latex_header: \usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+#+latex_header: \usepackage{longtable}
+#+latex_header: \fancyhead[R]{}
+#+latex_header: \setlength\headheight{43.0pt} 
+
+#+bibliography: bibliography.bib
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[spanish]{babel}
+#+LATEX_HEADER: \usepackage[backend=biber,style=ieee]{biblatex}
+
+
+#+begin_export latex
+\fancyhead[C]{\includegraphics[scale=0.05]{./imagenes/logoEpn.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+#+end_export
+
+* 2026-07-10 Funciones de los Módulos de E/S y E/S Programada
+
+** Preguntas y Términos clave (Cue):
+- ¿Cuál es la función de un módulo de E/S?
+- ¿Por qué se necesita un módulo de E/S entre CPU y periféricos?
+- ¿Qué es la E/S programada?
+- ¿Qué es el polling?
+- ¿Cuáles son las órdenes de E/S?
+
+Términos clave:
+- Módulo de E/S
+- Buffer
+- Registro de estado
+- Registro de control
+- Polling
+- E/S programada
+- Decodificación
+- Procesador
+  
+** Notas (Notes):
+
+*** Módulos de E/S
+
+El módulo de E/S permite la comunicación entre el procesador y los
+dispositivos externos.
+
+Funciones principales:
+- Control y Temporización
+- Comunicación con el procesador.
+- Comunicación con periféricos.
+- Almacenamiento temporal de datos mediante buffers.
+- Detección de errores.
+
+El buffer permite compensar diferencias de velocidad entre la CPU, memoria
+y dispositivos externos.
+
+El procesador se comunica con un módulo de E/S con los siguientes pasos:
+1. Primero consulta al módulo para conocer el estado del dispositivo
+2. El módulo responde si está listo o está ocupado
+3. Si el dispositivo está preparado, el procesador solicita la transferencia del dato
+4. El módulo obtiene la información del dispositivo externo.
+5. El módulo envia el dato hacia el procesador
+
+La comunicación entre el procesador y el módulo de E/S implica varios aspectos importantes
+-Decodificación de ordenes
+-Datos
+-Información de estado
+-Reconocimiento de Dirección
+
+
+*** E/S Programada
+
+La E/S programada es una técnica donde la CPU controla directamente la
+operación de entrada/salida.
+
+Funcionamiento:
+1. La CPU envía una orden al módulo de E/S.
+2. El módulo ejecuta la operación solicitada.
+3. La CPU consulta constantemente el estado del dispositivo.
+4. Se transfieren los datos cuando el dispositivo está listo.
+
+Este proceso se conoce como polling.
+
+Órdenes principales de E/S:
+- Control: ejecuta acciones sobre el dispositivo.
+- Test: consulta el estado del dispositivo.
+- Lectura: obtiene datos del periférico.
+- Escritura: envía datos al periférico.
+
+Si bien la E/S Programada podría parecer una técnica efectiva, mantiene a
+la CPU en constante incertidumbre. Esto hace que el procesador pierda tiempo
+teniendo que consultar al módulo de E/S cada cierto tiempo si está disponible,
+tiempo que podría ser aprovechado de otra manera.
+
+** Resumen (Summary):
+
+Los módulos de E/S actúan como intermediarios entre el procesador y los
+dispositivos externos, permitiendo controlar la comunicación, almacenar datos
+temporalmente y detectar errores.
+
+La E/S programada permite realizar transferencias mediante el control directo
+de la CPU, pero presenta la desventaja de mantener al procesador ocupado
+consultando continuamente el estado del dispositivo.
+
+* TODO Mis Tareas [0%]
+- [ ] Leer este documento
+- [ ] Escribir el resumen  de la exposición 1
+
+#+print_bibliography:
