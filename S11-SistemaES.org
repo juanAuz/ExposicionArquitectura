@@ -87,14 +87,96 @@ maximo
 
 
 * G7 — Módulos de E/S
-** Módulos de E/S (11, 273) (7, 236)
-** Funciones
-** Estructura de Módulos de E/S
+
+** Funciones del módulo de E/S
+
+Las principales funciones de un módulo de E/S son:
+
+#+ATTR_REVEAL: :frag (appear)
+- Control y temporización
+- Comunicación con el procesador
+- Comunicación con el dispositivo
+- Buffer de datos
+- Detección de errores
+
+
+** Comunicación con el procesador
+
+#+ATTR_REVEAL: :frag (appear)
+1. El procesador interroga al módulo de E/S
+2. El módulo de E/S devuelve el estado del dispositivo
+3. El procesador solicita la transferencia del dato
+4. El módulo obtiene un dato
+5. Los datos se transfieren al procesador
+
+La comunicación con el procesador implica:
+- Decodificación de órdenes
+- Datos
+- Información de estado
+- Reconocimiento de Dirección
+
+
+
+** Almacenamiento Temporal y detección de errores
+
+* Buffer de datos
+
+#+ATTR_REVEAL: :frag (appear)
+- Compensa diferencias de velocidad
+- Almacena temporalmente los datos
+- Sincroniza CPU y periféricos
+
+* Detección de errores
+
+#+ATTR_REVEAL: :frag (appear)
+- Fallos del dispositivo
+- Errores de transmisión
+- Bit de paridad
+
+
+** Estructura de un módulo de E/S
+
+#+CAPTION: Diagrama de bloques de un módulo de E/S
+[[file:images/DiagramaFlujo.png]]
+
+
+
 * G7 — E/S Programada
-** E/S Programada (11, 276) (7, 239)
-** Comandos de E/S
-** Instrucciones de E/S
-* G7 — E/S mediante Interrupción
+
+** E/S Programada
+
+La CPU controla completamente la operación de E/S.
+
+#+ATTR_REVEAL: :frag (appear)
+- Envía una orden al módulo de E/S
+- Consulta continuamente el estado
+- Espera hasta finalizar la operación
+- No utiliza interrupciones
+
+Polling (espera activa)
+
+
+** Órdenes de E/S
+
+| Orden     | Función                           |
+|-----------+-----------------------------------|
+| Control   | Activa o configura el dispositivo |
+| Test      | Consulta el estado                |
+| Lectura   | Obtiene datos del dispositivo     |
+| Escritura | Envía datos al dispositivo        |
+
+
+** Funcionamiento de la E/S Programada
+
+#+CAPTION: Flujo de la E/S Programada
+[[file:images/Diagramaflujo.png]]
+
+#+ATTR_REVEAL: :frag (appear)
+- La CPU verifica el estado del dispositivo
+- Si no está listo, continúa esperando
+- Cuando está listo, transfiere los datos
+
+** E/S mediante Interrupción
 ** E/S mediante Interrupción (11, 280) (7, 243)
 ** Procesamiento de la Interrupción
 ** Problemas de diseño
