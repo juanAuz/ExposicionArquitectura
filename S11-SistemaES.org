@@ -140,9 +140,9 @@ Las principales funciones de un módulo de E/S son:
 
 
 
-* G7 — E/S Programada
+** G7 — E/S Programada
 
-** E/S Programada
+*** E/S Programada
 
 La CPU controla completamente la operación de E/S.
 
@@ -173,15 +173,12 @@ Polling (espera activa)
 #+ATTR_REVEAL: :frag (appear)
 - La CPU verifica el estado del dispositivo, si no está listo continúa esperando
 
-** E/S mediante Interrupción
+* E/S mediante Interrupción
 ** E/S mediante Interrupción (11, 280) (7, 243)
 ** Procesamiento de la Interrupción
 ** Problemas de diseño
 * G7 — Acceso directo a Memoria DMA
-
-[[file:images/figura-7.4.png]]
-
-** Funcionalidad de DMA
+*Funcionalidad de DMA*
 El **DMA (Direct Memory Access)** es un módulo que permite realizar
 transferencias de datos entre memoria y dispositivos de E/S sin la
 intervención constante del procesador.
@@ -192,9 +189,14 @@ Para ello:
 - Libera el bus cuando termina.
 
 En *Cycle Stealing*, el DMA utiliza temporalmente el bus.
-** El procesador no se detiene igual que con una interrupción
-- EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
-- No guarda contexto.
+** DMA vs E/S Programada vs E/S mediante Interrupción
+#+ATTR_HTML: :width 1500 
+[[file:images/figura-7.4.png]]
+** ¿Qué información le proporciona el CPU al DMA?
+- Tipo de operación
+- Dispositivo de entrada/salida
+- Transferencia de datos
+EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe No guarda contexto.
 #+ATTR_HTML: :width 1000
 [[file:images/figura_7.12.png]]
 ** Configuraciones del DMA en el sistema
@@ -215,13 +217,12 @@ En *Cycle Stealing*, el DMA utiliza temporalmente el bus.
 #+ATTR_HTML: :width 1000 
 [[file:images/inte.jpg]]
 ** Señales
-*Señales HOLD/HOLAD (Controlaodr del DMA - CPU)*
-- *HOLD*: DMA pide el bus
-- *HLDA(Hold Acknowledge)*:Indica que se pueden usar los buses
+*Señales HOLD/HLDA (Controlaodr del DMA - CPU)*
+- ~HOLD~: DMA pide el bus
+- ~HLDA(Hold Acknowledge)~:Indica que se pueden usar los buses
 *Señales DREQ/DACK (Periférico - Controlador del DMA*)
--*DREQ (DMA Request)*:El periférico solicita el DMA
--*DACK (DMA Acknowledge)*: El DMA indica que se van a empezar a
-transferir datos
+- ~DREQ (DMA Request)~:El periférico solicita el DMA
+- ~DACK (DMA Acknowledge)~: El DMA indica que se van a empezar a transferir datos
 ** Secuencia paso a paso
 1. Periférico activa *DREQ*
 2. Controlador activa *HRQ* (Hold request) hacia la CPU
@@ -229,10 +230,10 @@ transferir datos
 4. Controlador activa *DACK*
 5. Transfiere byte a byte (MEMR/IOW), decrementando el contador
 6. Al llegar a cero, desactiva el HRQ y devuelve el bus
-** Canales y registros del 8237 a
-Dispone de cuatro canales de DMA independientes numerados del 0 al 3
-Dispone de 5 registros de control para programar y controlar la
-operación del DMA en cada uno de los canales.
+** Canales y registros del 8237 A
+- Dispone de cuatro canales de DMA independientes numerados del 0 al 3
+- Dispone de 5 registros de control para programar y controlar la operación del DMA en cada uno de los canales.
+#+ATTR_HTML: :width 1100 
 [[file:images/tabla 7.4.png]]
 * G8 — Canales y Procesadores de E/S
 ** Canales y Procesadores de E/S
