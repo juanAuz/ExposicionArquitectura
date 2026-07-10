@@ -181,7 +181,8 @@ Polling (espera activa)
 ** Procesamiento de la Interrupción
 ** Problemas de diseño
 * G7 — Acceso directo a Memoria DMA
-** Acceso directo a Memoria DMA (11, 290) (7, 251)
+
+[[file:images/figura-7.4.png]]
 
 ** Funcionalidad de DMA
 El **DMA (Direct Memory Access)** es un módulo que permite realizar
