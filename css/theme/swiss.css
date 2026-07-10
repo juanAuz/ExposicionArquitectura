@@ -458,7 +458,7 @@
 }
 
 .reveal section h2 {
-  margin-bottom: 0.9em;
+  margin-bottom: 0.5em;
 }
 
 .reveal pre,
@@ -491,6 +491,24 @@ html {
   .reveal section > section {
     margin: 1em 1rem;
   }
+}
+/* Soporte para columnas en Reveal.js */
+.columns {
+  display: flex !important;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.column {
+  flex: 1;
+}
+
+/* Forzar que el contenedor no rompa el diseño flex */
+.reveal section .columns {
+  display: flex !important;
 }
 
 /*# sourceMappingURL=swiss.css.map */
