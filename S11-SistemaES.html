@@ -33,10 +33,9 @@
 <div class="slides">
 <section id="sec-title-slide"><h1>S11 — Sistemas de Entrada/Salida</h1><h2>Grupo 7 - Grupo 8</h2>
 </section>
-
 <section>
-<section id="slide-org5856ac3">
-<h2 id="org5856ac3">Sistemas de Entrada/Salida</h2>
+<section id="slide-orgb174754">
+<h2 id="orgb174754">Sistemas de Entrada/Salida</h2>
 <p>
 La <b>arquitectura de E/S</b> de un computador es su interfaz con el
 exterior. Esta arquitectura permite una forma sistemática de controlar
@@ -52,8 +51,8 @@ Para ello, existen <b>3 técnicas principales</b>:
 
 </ul>
 </section>
-<section id="slide-org09f431c">
-<h3 id="org09f431c">Modulo de E/S</h3>
+<section id="slide-orgb5a7306">
+<h3 id="orgb5a7306">Modulo de E/S</h3>
 <p>
 Elemento clave de un computador junto al procesador y la
 memoria. Permite y gestiona la comunicación entre los <b>periféricos</b> y
@@ -69,17 +68,17 @@ los <b>buses del sistema</b>
 
 </ul>
 </section>
-<section id="slide-org2b26fbc">
-<h4 id="org2b26fbc">Funciones módulo</h4>
+<section id="slide-orga09b075">
+<h4 id="orga09b075">Funciones módulo</h4>
 
-<div id="org461de04" class="figure">
+<div id="orgaaece50" class="figure">
 <p><img src="images/funcionesModuloES.png" alt="funcionesModuloES.png" style="max-height: 70vh; object-fit: contain;" />
 </p>
 <p><span class="figure-number">Figura 1: </span>Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.</p>
 </div>
 </section>
-<section id="slide-org4d0f2d5">
-<h4 id="org4d0f2d5">¿Por que no conectar directamente?</h4>
+<section id="slide-org0b0aabb">
+<h4 id="org0b0aabb">¿Por que no conectar directamente?</h4>
 <ul>
 <li class="fragment appear">Amplia <b>variedad</b> con funcionamiento variable.</li>
 <li class="fragment appear">Desincronización de <b>velocidades</b>.</li>
@@ -87,13 +86,13 @@ los <b>buses del sistema</b>
 
 </ul>
 
-<div id="org9124801" class="figure">
+<div id="org927ee33" class="figure">
 <p><img src="images/importanciaModulo.png" alt="importanciaModulo.png" class="fragment (appear)" style="max-height: 50vh; object-fit: contain;" />
 </p>
 </div>
 </section>
-<section id="slide-org7199289">
-<h3 id="org7199289">Dispositivos Externos</h3>
+<section id="slide-orgdb3f990">
+<h3 id="orgdb3f990">Dispositivos Externos</h3>
 <p>
 Los dispositivos externos proporcionan una forma de intercambiar datos
 entre el <b>exterior</b> y el computador.
@@ -109,8 +108,8 @@ entre el <b>exterior</b> y el computador.
 
 </ul>
 </section>
-<section id="slide-orgb6e1686">
-<h4 id="orgb6e1686">Clasificación de dispositivos externos</h4>
+<section id="slide-org1df97c1">
+<h4 id="org1df97c1">Clasificación de dispositivos externos</h4>
 <ul>
 <li><b>Interacción con humanos</b>: comunicación con el usuario (VDT, impresoras)</li>
 <li><b>Interacción con máquinas</b>: discos, cintas, sensores, actuadores (robótica)</li>
@@ -118,8 +117,8 @@ entre el <b>exterior</b> y el computador.
 
 </ul>
 </section>
-<section id="slide-org5882583">
-<h4 id="org5882583">Señales de control</h4>
+<section id="slide-orgfe18474">
+<h4 id="orgfe18474">Señales de control</h4>
 <p>
 Determinan la <b>función</b> que debe realizar el dispositivo
 </p>
@@ -131,8 +130,8 @@ Determinan la <b>función</b> que debe realizar el dispositivo
 
 </ul>
 </section>
-<section id="slide-orgb05788a">
-<h4 id="orgb05788a">Señales de estado y datos</h4>
+<section id="slide-org77bacfe">
+<h4 id="org77bacfe">Señales de estado y datos</h4>
 <ul>
 <li class="fragment appear"><code>Datos</code>: conjunto de bits enviados o recibidos del módulo de E/S</li>
 <li class="fragment appear"><p>
@@ -145,7 +144,7 @@ Determinan la <b>función</b> que debe realizar el dispositivo
 
 </ul>
 <ul class="org-ul">
-<li><a id="org575dd4a"></a><code>Componentes internos</code><br />
+<li><a id="org197715a"></a><code>Componentes internos</code><br />
 <ul>
 <li class="fragment appear"><b>Lógica de control</b>: controla la operación según las órdenes del módulo de E/S</li>
 <li class="fragment appear"><b>Transductor</b>: convierte señales eléctricas en  otra forma de energía</li>
@@ -156,17 +155,17 @@ Determinan la <b>función</b> que debe realizar el dispositivo
 </li>
 </ul>
 </section>
-<section id="slide-org177f724">
-<h4 id="org177f724">Diagrama de Bloques de un dispositivo externo</h4>
+<section id="slide-orgba2eba4">
+<h4 id="orgba2eba4">Diagrama de Bloques de un dispositivo externo</h4>
 
-<div id="org1755d13" class="figure">
+<div id="orgf74cd60" class="figure">
 <p><img src="images/diagramaDispExt.png" alt="diagramaDispExt.png" style="max-height: 70vh; object-fit: contain;" />
 </p>
 <p><span class="figure-number">Figura 2: </span>Figura 7.2. Estructura de un dispositivo externo. Tomado de Stallings 7ma ed.</p>
 </div>
 </section>
-<section id="slide-org25fe0fd">
-<h3 id="org25fe0fd">Teclado/Monitor</h3>
+<section id="slide-org3e6fe5c">
+<h3 id="org3e6fe5c">Teclado/Monitor</h3>
 <p>
 Forma más <b>común</b> de interacción usuario/computador
 </p>
@@ -177,7 +176,7 @@ Forma más <b>común</b> de interacción usuario/computador
 
 </ul>
 <ul class="org-ul">
-<li><a id="orgd92bcfe"></a><code>Flujo de la señal</code><br />
+<li><a id="orgd5484f4"></a><code>Flujo de la señal</code><br />
 <ul>
 <li class="fragment appear"><b>Entrada</b>: tecla → transductor → código IRA → módulo de E/S</li>
 <li class="fragment appear"><b>Salida</b>: módulo de E/S → código IRA → transductor → carácter en pantalla</li>
@@ -186,8 +185,8 @@ Forma más <b>común</b> de interacción usuario/computador
 </li>
 </ul>
 </section>
-<section id="slide-org85443f2">
-<h4 id="org85443f2">Código IRA</h4>
+<section id="slide-org7fd9cfc">
+<h4 id="org7fd9cfc">Código IRA</h4>
 <ul>
 <li class="fragment appear"><b>7 bits</b> → 128 caracteres posibles <code>(similar a ASCII)</code></li>
 <li class="fragment appear">Dos tipos: <b>imprimibles</b> (letras, números) y <b>de control</b> (ej. retorno de carro)</li>
@@ -195,18 +194,17 @@ Forma más <b>común</b> de interacción usuario/computador
 
 </ul>
 </section>
-<section id="slide-org831c509">
-<h4 id="org831c509">Tabla código ASCII</h4>
+<section id="slide-org9194d7b">
+<h4 id="org9194d7b">Tabla código ASCII</h4>
 
-<div id="org92a5e69" class="figure">
+<div id="org0d13150" class="figure">
 <p><img src="images/codigoASCII.png" alt="codigoASCII.png" style="max-height: 70vh; object-fit: contain;" />
 </p>
 <p><span class="figure-number">Figura 3: </span>Figura 7.3. Tabla del código ASCII. Tomado de Stallings 7ma ed.</p>
 </div>
-
 </section>
-<section id="slide-orgc66ed77">
-<h3 id="orgc66ed77">Controlador de Disco (Disk Drive)</h3>
+<section id="slide-org40b3efd">
+<h3 id="org40b3efd">Controlador de Disco (Disk Drive)</h3>
 <p>
 Contiene la electrónica para:
 </p>
@@ -216,7 +214,7 @@ Contiene la electrónica para:
 
 </ul>
 <ul class="org-ul">
-<li><a id="orgd30f2b2"></a><code>Tipos de disco</code><br />
+<li><a id="orgf709058"></a><code>Tipos de disco</code><br />
 <ul>
 <li class="fragment appear"><b>Cabeza fija</b>: el transductor convierte patrones magnéticos ↔ bits del buffer</li>
 <li class="fragment appear"><b>Cabeza móvil</b>: además mueve el brazo <b>radialmente</b> sobre la superficie del disco</li>
@@ -224,17 +222,16 @@ Contiene la electrónica para:
 </ul>
 </li>
 </ul>
-
 </section>
 </section>
 <section>
-<section id="slide-orgdf369d2">
-<h2 id="orgdf369d2">Módulos de E/S</h2>
-<div class="outline-text-2" id="text-orgdf369d2">
+<section id="slide-org77d6b57">
+<h2 id="org77d6b57">Módulos de E/S</h2>
+<div class="outline-text-2" id="text-org77d6b57">
 </div>
 </section>
-<section id="slide-org5b27cd2">
-<h3 id="org5b27cd2">Funciones del módulo de E/S</h3>
+<section id="slide-org6e17b1f">
+<h3 id="org6e17b1f">Funciones del módulo de E/S</h3>
 <p>
 Las principales funciones de un módulo de E/S son:
 </p>
@@ -247,11 +244,9 @@ Las principales funciones de un módulo de E/S son:
 <li class="fragment appear">Detección de errores</li>
 
 </ul>
-
-
 </section>
-<section id="slide-org5169bc7">
-<h3 id="org5169bc7">Comunicación con el procesador</h3>
+<section id="slide-org486a1cb">
+<h3 id="org486a1cb">Comunicación con el procesador</h3>
 <ol>
 <li class="fragment appear">El procesador interroga al módulo de E/S</li>
 <li class="fragment appear">El módulo de E/S devuelve el estado del dispositivo</li>
@@ -260,65 +255,56 @@ Las principales funciones de un módulo de E/S son:
 <li class="fragment appear">Los datos se transfieren al procesador</li>
 
 </ol>
-
 </section>
-<section id="slide-org5292df5">
-<h3 id="org5292df5">La comunicación con el procesador implica:</h3>
+<section id="slide-org36964f3">
+<h3 id="org36964f3">La comunicación con el procesador implica:</h3>
 <ul>
 <li>Decodificación de órdenes</li>
 <li>Información de Estado</li>
 <li>Datos</li>
 
 </ul>
-
+</section>
+<section id="slide-orgcb8473d">
+<h4 id="orgcb8473d">Almacenamiento Temporal y detección de errores</h4>
 
 </section>
-<section id="slide-orge45abb1">
-<h4 id="orge45abb1">Almacenamiento Temporal y detección de errores</h4>
-
-</section>
-<section id="slide-org2a99a45">
-<h4 id="org2a99a45">Buffer de datos</h4>
+<section id="slide-org2a9dcdf">
+<h4 id="org2a9dcdf">Buffer de datos</h4>
 <ul>
 <li class="fragment appear">Compensa diferencias de velocidad</li>
 <li class="fragment appear">Almacena temporalmente los datos</li>
 <li class="fragment appear">Sincroniza CPU y periféricos</li>
 
 </ul>
-
 </section>
-<section id="slide-org11418c6">
-<h4 id="org11418c6">Detección de errores</h4>
+<section id="slide-orgdd6ccc2">
+<h4 id="orgdd6ccc2">Detección de errores</h4>
 <ul>
 <li class="fragment appear">Fallos del dispositivo</li>
 <li class="fragment appear">Errores de transmisión</li>
 <li class="fragment appear">Bit de paridad</li>
 
 </ul>
-
-
 </section>
-<section id="slide-org9e363d0">
-<h3 id="org9e363d0">Estructura de un módulo de E/S</h3>
+<section id="slide-orga03a4b8">
+<h3 id="orga03a4b8">Estructura de un módulo de E/S</h3>
 
-<div id="org471c0ac" class="figure">
+<div id="org2409e4d" class="figure">
 <p><img src="images/BloquesES.png" alt="BloquesES.png" style="width: 80%; height: auto;" />
 </p>
 <p><span class="figure-number">Figura 4: </span>Diagrama de bloques de un módulo de E/S</p>
 </div>
-
-
-
 </section>
 </section>
 <section>
-<section id="slide-org406f293">
-<h2 id="org406f293">E/S Programada</h2>
-<div class="outline-text-2" id="text-org406f293">
+<section id="slide-org4e8a772">
+<h2 id="org4e8a772">E/S Programada</h2>
+<div class="outline-text-2" id="text-org4e8a772">
 </div>
 </section>
-<section id="slide-orgdc74e10">
-<h3 id="orgdc74e10">E/S Programada</h3>
+<section id="slide-orgf223af2">
+<h3 id="orgf223af2">E/S Programada</h3>
 <p>
 La CPU controla completamente la operación de E/S.
 </p>
@@ -333,11 +319,9 @@ La CPU controla completamente la operación de E/S.
 <p class="fragment (appear)">
 <b>Polling (espera activa)</b>
 </p>
-
-
 </section>
-<section id="slide-org2c636db">
-<h3 id="org2c636db">Órdenes de E/S</h3>
+<section id="slide-org6993a97">
+<h3 id="org6993a97">Órdenes de E/S</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -374,13 +358,11 @@ La CPU controla completamente la operación de E/S.
 </tr>
 </tbody>
 </table>
-
-
 </section>
-<section id="slide-org68f3566">
-<h3 id="org68f3566">Funcionamiento de la E/S Programada</h3>
+<section id="slide-orgf54e58a">
+<h3 id="orgf54e58a">Funcionamiento de la E/S Programada</h3>
 
-<div id="org19df006" class="figure">
+<div id="org9809e43" class="figure">
 <p><img src="images/DiagramaFlujo.png" alt="DiagramaFlujo.png" style="width: 40%; height: auto;" />
 </p>
 <p><span class="figure-number">Figura 5: </span>Flujo de la E/S Programada</p>
@@ -390,118 +372,113 @@ La CPU controla completamente la operación de E/S.
 <li class="fragment appear">La CPU verifica el estado del dispositivo, si no está listo continúa esperando</li>
 
 </ul>
-
 </section>
 </section>
 <section>
-<section id="slide-orgb0af7e8">
-<h2 id="orgb0af7e8">E/S mediante Interrupción</h2>
-<p>
+<section id="slide-orgd90ae6b">
+<h2 id="orgd90ae6b">E/S mediante Interrupción</h2>
+<p style="font-size:1.2em; color:#f8f8f2; text-align:center; display:block; margin:0.4em auto 0;">
 El módulo de E/S <b>interrumpe</b> al procesador cuando tiene el dato listo.
 </p>
 
-<ul>
-<li class="fragment appear">El CPU <b>no espera</b> — continúa con otra tarea</li>
-<li class="fragment appear">El dispositivo <b>avisa</b> cuando está listo</li>
-<li class="fragment appear">Se evita el <i>polling</i> (espera activa)</li>
-
-</ul>
-
+<div style="display:flex; gap:0.8em; justify-content:center; flex-wrap:wrap; margin-top:1.4em;">
+  <span style="background:rgba(189,147,249,0.12); border:1px solid #bd93f9; color:#bd93f9; padding:0.45em 1.1em; border-radius:2em; font-size:0.7em; font-weight:600; letter-spacing:0.02em;">CPU NO ESPERA</span>
+  <span style="background:rgba(80,250,123,0.12); border:1px solid #50fa7b; color:#50fa7b; padding:0.45em 1.1em; border-radius:2em; font-size:0.7em; font-weight:600; letter-spacing:0.02em;">DISPOSITIVO AVISA</span>
+  <span style="background:rgba(139,233,253,0.12); border:1px solid #8be9fd; color:#8be9fd; padding:0.45em 1.1em; border-radius:2em; font-size:0.7em; font-weight:600; letter-spacing:0.02em;">SIN POLLING</span>
+</div>
 </section>
-<section id="slide-org71ae7ff">
-<h3 id="org71ae7ff">E/S mediante Interrupción (11, 280) (7, 243)</h3>
-<p>
-<b>Diferencia clave frente a E/S Programada:</b>
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">E/S Programada</th>
-<th scope="col" class="org-left">E/S por Interrupciones</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">CPU pregunta sin parar</td>
-<td class="org-left">Dispositivo avisa al CPU</td>
-</tr>
-
-<tr>
-<td class="org-left">CPU bloqueado</td>
-<td class="org-left">CPU libre para otras tareas</td>
-</tr>
-
-<tr>
-<td class="org-left">Espera activa</td>
-<td class="org-left">Espera pasiva</td>
-</tr>
-</tbody>
+<section id="slide-orgfb03ca3">
+<h3 id="orgfb03ca3">E/S mediante Interrupción (11, 280) (7, 243)</h3>
+<table style="width:100%; border-collapse:collapse; margin-top:0.6em; font-size:0.8em;">
+  <thead>
+    <tr>
+      <th style="background:rgba(255,85,85,0.12); color:#ff5555; border:1px solid rgba(255,85,85,0.35); padding:0.65em 1em; text-align:left; font-size:1.05em;">E/S Programada</th>
+      <th style="background:rgba(80,250,123,0.12); color:#50fa7b; border:1px solid rgba(80,250,123,0.35); padding:0.65em 1em; text-align:left; font-size:1.05em;">E/S por Interrupciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="fragment">
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">CPU pregunta sin parar</td>
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">Dispositivo avisa al CPU</td>
+    </tr>
+    <tr class="fragment">
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">CPU bloqueado</td>
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">CPU libre para otras tareas</td>
+    </tr>
+    <tr class="fragment">
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">Espera activa</td>
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">Espera pasiva</td>
+    </tr>
+  </tbody>
 </table>
-
 </section>
-<section id="slide-orgc7f6dcc">
-<h3 id="orgc7f6dcc">Procesamiento de la Interrupción</h3>
-<p>
-<b>Hardware:</b>
-</p>
-
-<ol>
-<li class="fragment appear">Dispositivo envía señal de interrupción</li>
-<li class="fragment appear">CPU termina la instrucción en curso</li>
-<li class="fragment appear">CPU guarda <b>PC</b> y <b>PSW</b> en la pila</li>
-<li class="fragment appear">CPU salta a la rutina de interrupción</li>
-
-</ol>
-
-<p>
-<b>Software:</b>
-</p>
-
-<ol>
-<li class="fragment appear">Se guardan los registros del procesador</li>
-<li class="fragment appear">Se procesa la interrupción</li>
-<li class="fragment appear">Se restauran registros, PC y PSW</li>
-<li class="fragment appear">El programa original continúa</li>
-
-</ol>
-
+<section id="slide-org015c815">
+<h3 id="org015c815">Procesamiento de la Interrupción</h3>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5em; text-align:left; font-size:0.8em; margin-top:0.2em;">
+  <div>
+    <div style="color:#bd93f9; font-weight:700; font-size:1.1em; margin-bottom:0.7em; letter-spacing:0.03em;">HARDWARE</div>
+    <ol style="list-style:none; padding:0; margin:0;">
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">1</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Señal de interrupción</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">2</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Termina instrucción actual</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">3</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Guarda <strong>PC</strong> y <strong>PSW</strong></span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">4</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Salta a rutina de interrupción</span>
+      </li>
+    </ol>
+  </div>
+  <div>
+    <div style="color:#8be9fd; font-weight:700; font-size:1.1em; margin-bottom:0.7em; letter-spacing:0.03em;">SOFTWARE</div>
+    <ol style="list-style:none; padding:0; margin:0;">
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">5</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Guarda registros</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">6</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Procesa la interrupción</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">7</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Restaura registros, <strong>PC</strong>, <strong>PSW</strong></span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">8</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Continúa el programa</span>
+      </li>
+    </ol>
+  </div>
+</div>
 </section>
-<section id="slide-org45bbdb9">
-<h3 id="org45bbdb9">Problemas de diseño</h3>
-<p>
-<b>¿Cómo saber qué dispositivo interrumpió?</b>
-</p>
-
-<ul>
-<li class="fragment appear">Múltiples líneas de interrupción</li>
-<li class="fragment appear">Consulta de software (<i>polling</i>)</li>
-<li class="fragment appear">Conexión en cadena (<i>daisy chain</i>)</li>
-<li class="fragment appear">Arbitraje de bus</li>
-
-</ul>
-
-<p>
-<b>¿A cuál atender si llegan varias a la vez?</b>
-</p>
-
-<ul>
-<li class="fragment appear">Se asignan <b>niveles de prioridad</b> a cada dispositivo</li>
-
-</ul>
-
+<section id="slide-org9d4ac4b">
+<h3 id="org9d4ac4b">Problemas de diseño</h3>
+<div style="text-align:left; font-size:0.82em; margin-top:0.2em;">
+  <div style="color:#bd93f9; font-weight:700; margin-bottom:0.5em; font-size:1.05em;">¿Quién interrumpió?</div>
+  <ul style="list-style:none; padding:0; margin:0 0 1.3em 0;">
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2; border-bottom:1px solid rgba(248,248,242,0.12);">Múltiples líneas de interrupción</li>
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2; border-bottom:1px solid rgba(248,248,242,0.12);">Consulta de software <em style="color:#8be9fd;">(polling)</em></li>
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2; border-bottom:1px solid rgba(248,248,242,0.12);">Conexión en cadena <em style="color:#8be9fd;">(daisy chain)</em></li>
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2;">Arbitraje de bus</li>
+  </ul>
+  <div class="fragment" style="border-top:1px solid rgba(189,147,249,0.3); padding-top:1em; display:flex; align-items:center; gap:0.8em; font-size:1.05em;">
+    <span style="color:#50fa7b; font-weight:700;">¿Cuál primero?</span>
+    <span style="color:#f8f8f2;">→ Se asignan <strong style="color:#50fa7b;">niveles de prioridad</strong></span>
+  </div>
+</div>
 </section>
 </section>
 <section>
-<section id="slide-orgabcdb32">
-<h2 id="orgabcdb32">Acceso directo a Memoria DMA</h2>
+<section id="slide-org9ab6c31">
+<h2 id="org9ab6c31">Acceso directo a Memoria DMA</h2>
 <p>
 <b>El DMA (Direct Memory Access)</b> es un módulo que permite realizar
 transferencias de datos entre memoria y dispositivos de E/S sin la
@@ -522,16 +499,16 @@ Para ello:
 En <b>Cycle Stealing</b>, el DMA utiliza temporalmente el bus.
 </p>
 </section>
-<section id="slide-org26b5dea">
-<h3 id="org26b5dea">DMA vs E/S Programada vs E/S mediante interrupción</h3>
+<section id="slide-org0d78ec5">
+<h3 id="org0d78ec5">DMA vs E/S Programada vs E/S mediante interrupción</h3>
 
-<div id="orgb338691" class="figure">
+<div id="orgeb93d56" class="figure">
 <p><img src="images/figura-7.4.png" alt="figura-7.4.png" width="1500" />
 </p>
 </div>
 </section>
-<section id="slide-orgc448a43">
-<h3 id="orgc448a43">¿Que información le proporciona el CPU al DMA?</h3>
+<section id="slide-orgebc0b75">
+<h3 id="orgebc0b75">¿Que información le proporciona el CPU al DMA?</h3>
 <ul>
 <li>Tipo de operación</li>
 <li>Dispositivo de Entrada/Salida</li>
@@ -542,13 +519,13 @@ En <b>Cycle Stealing</b>, el DMA utiliza temporalmente el bus.
 EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
 </p>
 
-<div id="orgb2e19fe" class="figure">
+<div id="orgb351e1e" class="figure">
 <p><img src="images/figura_7.12.png" alt="figura_7.12.png" width="1000" />
 </p>
 </div>
 </section>
-<section id="slide-org89152cb">
-<h3 id="org89152cb">Configuraciones del DMA en el sistema</h3>
+<section id="slide-orgbb60457">
+<h3 id="orgbb60457">Configuraciones del DMA en el sistema</h3>
 <ul>
 <li><b>Bus único</b>: Todos comparten el mismo bus</li>
 <li><b>DMA - E/S integrados:</b> El DMA se conecta directamente a
@@ -558,16 +535,16 @@ dispositivos</li>
 
 </ul>
 </section>
-<section id="slide-org7d71f30">
-<h3 id="org7d71f30">Configuraciones del DMA en el sistema</h3>
+<section id="slide-orgabd45e8">
+<h3 id="orgabd45e8">Configuraciones del DMA en el sistema</h3>
 
-<div id="org9d55d92" class="figure">
+<div id="orge5b97c4" class="figure">
 <p><img src="images/figura_7.13.png" alt="figura_7.13.png" width="1500" />
 </p>
 </div>
 </section>
-<section id="slide-org95ee469">
-<h3 id="org95ee469">Controlador Intel 8237 A</h3>
+<section id="slide-orgc9d1ad7">
+<h3 id="orgc9d1ad7">Controlador Intel 8237 A</h3>
 <ul>
 <li>Controlador de DMA de Intel</li>
 <li>Le da acceso directo a la memoria DRAM en computadores con
@@ -577,13 +554,13 @@ procesadores 80x86</li>
 
 </ul>
 
-<div id="org60c6e44" class="figure">
+<div id="org9742b62" class="figure">
 <p><img src="images/inte.jpg" alt="inte.jpg" width="1000" />
 </p>
 </div>
 </section>
-<section id="slide-orgd34327a">
-<h3 id="orgd34327a">Señales</h3>
+<section id="slide-orgb63259e">
+<h3 id="orgb63259e">Señales</h3>
 <p>
 <b>Señales HOLD/HOLAD (Controlaodr del DMA - CPU)</b>
 </p>
@@ -601,8 +578,8 @@ procesadores 80x86</li>
 
 </ul>
 </section>
-<section id="slide-orgc0a5cd5">
-<h3 id="orgc0a5cd5">Secuencia paso a paso</h3>
+<section id="slide-org705793c">
+<h3 id="org705793c">Secuencia paso a paso</h3>
 <ol>
 <li>Periférico activa <b>DREQ</b></li>
 <li>Controlador activa <b>HRQ</b> (Hold request) hacia la CPU</li>
@@ -613,8 +590,8 @@ procesadores 80x86</li>
 
 </ol>
 </section>
-<section id="slide-org1967114">
-<h3 id="org1967114">Canales y registros del 8237 a</h3>
+<section id="slide-org224d8f1">
+<h3 id="org224d8f1">Canales y registros del 8237 a</h3>
 <p>
 Dispone de cuatro canales de DMA independientes numerados del 0 al 3
 Dispone de 5 registros de control para programar y controlar la
@@ -624,47 +601,47 @@ operación del DMA en cada uno de los canales.
 </section>
 </section>
 <section>
-<section id="slide-orgf448560">
-<h2 id="orgf448560">G8 — Canales y Procesadores de E/S</h2>
-<div class="outline-text-2" id="text-orgf448560">
+<section id="slide-orgdda3a7c">
+<h2 id="orgdda3a7c">G8 — Canales y Procesadores de E/S</h2>
+<div class="outline-text-2" id="text-orgdda3a7c">
 </div>
 </section>
-<section id="slide-orgb20aff4">
-<h3 id="orgb20aff4">Canales y Procesadores de E/S</h3>
+<section id="slide-orgc0e48c4">
+<h3 id="orgc0e48c4">Canales y Procesadores de E/S</h3>
 </section>
-<section id="slide-orgd316e7a">
-<h3 id="orgd316e7a">Evolución de las funciones E/S</h3>
+<section id="slide-orgacfaad2">
+<h3 id="orgacfaad2">Evolución de las funciones E/S</h3>
 </section>
-<section id="slide-orgd0baada">
-<h3 id="orgd0baada">Características de los canales E/S</h3>
+<section id="slide-org9dd5f58">
+<h3 id="org9dd5f58">Características de los canales E/S</h3>
 </section>
 </section>
 <section>
-<section id="slide-org7680796">
-<h2 id="org7680796">G8 — Estándares de interconexión externa</h2>
-<div class="outline-text-2" id="text-org7680796">
+<section id="slide-org812404f">
+<h2 id="org812404f">G8 — Estándares de interconexión externa</h2>
+<div class="outline-text-2" id="text-org812404f">
 </div>
 </section>
-<section id="slide-org9ea52df">
-<h3 id="org9ea52df">USB</h3>
+<section id="slide-org9a1bcb6">
+<h3 id="org9a1bcb6">USB</h3>
 </section>
-<section id="slide-orgd443cf9">
-<h3 id="orgd443cf9">FireWire</h3>
+<section id="slide-org4a0a687">
+<h3 id="org4a0a687">FireWire</h3>
 </section>
-<section id="slide-org049ae31">
-<h3 id="org049ae31">SCSI</h3>
+<section id="slide-org9afdc0d">
+<h3 id="org9afdc0d">SCSI</h3>
 </section>
-<section id="slide-org8bdc468">
-<h3 id="org8bdc468">Thunderbolt</h3>
+<section id="slide-orgdb62f5d">
+<h3 id="orgdb62f5d">Thunderbolt</h3>
 </section>
-<section id="slide-org28c9834">
-<h3 id="org28c9834">SATA</h3>
+<section id="slide-org04b1ccf">
+<h3 id="org04b1ccf">SATA</h3>
 </section>
-<section id="slide-org2251b4c">
-<h3 id="org2251b4c">Ethernet</h3>
+<section id="slide-org930b112">
+<h3 id="org930b112">Ethernet</h3>
 </section>
-<section id="slide-org244a322">
-<h3 id="org244a322">Wi-Fi</h3>
+<section id="slide-orge2b55d0">
+<h3 id="orge2b55d0">Wi-Fi</h3>
 </section>
 </section>
 </div>

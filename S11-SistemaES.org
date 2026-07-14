@@ -234,54 +234,110 @@ La CPU controla completamente la operación de E/S.
 
 * E/S mediante Interrupción
 
+#+ATTR_HTML: :style font-size:1.2em; color:#f8f8f2; text-align:center; display:block; margin:0.4em auto 0;
 El módulo de E/S *interrumpe* al procesador cuando tiene el dato listo.
 
-#+ATTR_REVEAL: :frag (appear)
-- El CPU *no espera* — continúa con otra tarea
-- El dispositivo *avisa* cuando está listo
-- Se evita el /polling/ (espera activa)
+#+BEGIN_export html
+<div style="display:flex; gap:0.8em; justify-content:center; flex-wrap:wrap; margin-top:1.4em;">
+  <span style="background:rgba(189,147,249,0.12); border:1px solid #bd93f9; color:#bd93f9; padding:0.45em 1.1em; border-radius:2em; font-size:0.7em; font-weight:600; letter-spacing:0.02em;">CPU NO ESPERA</span>
+  <span style="background:rgba(80,250,123,0.12); border:1px solid #50fa7b; color:#50fa7b; padding:0.45em 1.1em; border-radius:2em; font-size:0.7em; font-weight:600; letter-spacing:0.02em;">DISPOSITIVO AVISA</span>
+  <span style="background:rgba(139,233,253,0.12); border:1px solid #8be9fd; color:#8be9fd; padding:0.45em 1.1em; border-radius:2em; font-size:0.7em; font-weight:600; letter-spacing:0.02em;">SIN POLLING</span>
+</div>
+#+END_export
 
 ** E/S mediante Interrupción (11, 280) (7, 243)
 
-*Diferencia clave frente a E/S Programada:*
-
-| E/S Programada         | E/S por Interrupciones      |
-|------------------------+-----------------------------|
-| CPU pregunta sin parar | Dispositivo avisa al CPU    |
-| CPU bloqueado          | CPU libre para otras tareas |
-| Espera activa          | Espera pasiva               |
+#+BEGIN_export html
+<table style="width:100%; border-collapse:collapse; margin-top:0.6em; font-size:0.8em;">
+  <thead>
+    <tr>
+      <th style="background:rgba(255,85,85,0.12); color:#ff5555; border:1px solid rgba(255,85,85,0.35); padding:0.65em 1em; text-align:left; font-size:1.05em;">E/S Programada</th>
+      <th style="background:rgba(80,250,123,0.12); color:#50fa7b; border:1px solid rgba(80,250,123,0.35); padding:0.65em 1em; text-align:left; font-size:1.05em;">E/S por Interrupciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="fragment">
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">CPU pregunta sin parar</td>
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">Dispositivo avisa al CPU</td>
+    </tr>
+    <tr class="fragment">
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">CPU bloqueado</td>
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">CPU libre para otras tareas</td>
+    </tr>
+    <tr class="fragment">
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">Espera activa</td>
+      <td style="border:1px solid rgba(248,248,242,0.15); padding:0.65em 1em; color:#f8f8f2;">Espera pasiva</td>
+    </tr>
+  </tbody>
+</table>
+#+END_export
 
 ** Procesamiento de la Interrupción
 
-*Hardware:*
-
-#+ATTR_REVEAL: :frag (appear)
-1. Dispositivo envía señal de interrupción
-2. CPU termina la instrucción en curso
-3. CPU guarda *PC* y *PSW* en la pila
-4. CPU salta a la rutina de interrupción
-
-*Software:*
-
-#+ATTR_REVEAL: :frag (appear)
-5. Se guardan los registros del procesador
-6. Se procesa la interrupción
-7. Se restauran registros, PC y PSW
-8. El programa original continúa
+#+BEGIN_export html
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5em; text-align:left; font-size:0.8em; margin-top:0.2em;">
+  <div>
+    <div style="color:#bd93f9; font-weight:700; font-size:1.1em; margin-bottom:0.7em; letter-spacing:0.03em;">HARDWARE</div>
+    <ol style="list-style:none; padding:0; margin:0;">
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">1</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Señal de interrupción</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">2</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Termina instrucción actual</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">3</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Guarda <strong>PC</strong> y <strong>PSW</strong></span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#bd93f9; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">4</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Salta a rutina de interrupción</span>
+      </li>
+    </ol>
+  </div>
+  <div>
+    <div style="color:#8be9fd; font-weight:700; font-size:1.1em; margin-bottom:0.7em; letter-spacing:0.03em;">SOFTWARE</div>
+    <ol style="list-style:none; padding:0; margin:0;">
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">5</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Guarda registros</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">6</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Procesa la interrupción</span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">7</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Restaura registros, <strong>PC</strong>, <strong>PSW</strong></span>
+      </li>
+      <li class="fragment" style="display:flex; gap:0.7em; margin-bottom:0.65em; align-items:flex-start;">
+        <span style="background:#8be9fd; color:#282a36; min-width:1.6em; height:1.6em; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85em; flex-shrink:0;">8</span>
+        <span style="color:#f8f8f2; padding-top:0.15em;">Continúa el programa</span>
+      </li>
+    </ol>
+  </div>
+</div>
+#+END_export
 
 ** Problemas de diseño
-*¿Cómo saber qué dispositivo interrumpió?*
 
-#+ATTR_REVEAL: :frag (appear)
-- Múltiples líneas de interrupción
-- Consulta de software (/polling/)
-- Conexión en cadena (/daisy chain/)
-- Arbitraje de bus
-
-*¿A cuál atender si llegan varias a la vez?*
-
-#+ATTR_REVEAL: :frag (appear)
-- Se asignan *niveles de prioridad* a cada dispositivo
+#+BEGIN_export html
+<div style="text-align:left; font-size:0.82em; margin-top:0.2em;">
+  <div style="color:#bd93f9; font-weight:700; margin-bottom:0.5em; font-size:1.05em;">¿Quién interrumpió?</div>
+  <ul style="list-style:none; padding:0; margin:0 0 1.3em 0;">
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2; border-bottom:1px solid rgba(248,248,242,0.12);">Múltiples líneas de interrupción</li>
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2; border-bottom:1px solid rgba(248,248,242,0.12);">Consulta de software <em style="color:#8be9fd;">(polling)</em></li>
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2; border-bottom:1px solid rgba(248,248,242,0.12);">Conexión en cadena <em style="color:#8be9fd;">(daisy chain)</em></li>
+    <li class="fragment" style="padding:0.45em 0; color:#f8f8f2;">Arbitraje de bus</li>
+  </ul>
+  <div class="fragment" style="border-top:1px solid rgba(189,147,249,0.3); padding-top:1em; display:flex; align-items:center; gap:0.8em; font-size:1.05em;">
+    <span style="color:#50fa7b; font-weight:700;">¿Cuál primero?</span>
+    <span style="color:#f8f8f2;">→ Se asignan <strong style="color:#50fa7b;">niveles de prioridad</strong></span>
+  </div>
+</div>
+#+END_export
 
 * Acceso directo a Memoria DMA
 *El DMA (Direct Memory Access)* es un módulo que permite realizar
