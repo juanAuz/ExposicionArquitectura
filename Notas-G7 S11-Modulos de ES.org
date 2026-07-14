@@ -203,11 +203,116 @@ La E/S programada permite realizar transferencias mediante el control directo
 de la CPU, pero presenta la desventaja de mantener al procesador ocupado
 consultando continuamente el estado del dispositivo.
 
-* TODO Mis Tareas [0%]
-- [ ] Leer este documento
-- [ ] Escribir el resumen  de la exposición 1
+* 2026-07-10 E/S mediante Interrupción
 
-#+print_bibliography:
+** Preguntas y Términos clave (Cue):
+- ¿Qué problema resuelve la E/S mediante interrupción?
+- ¿En qué se diferencia de la E/S programada?
+- ¿Qué sucede cuando llega una señal de interrupción?
+- ¿Por qué se guarda el PC y el PSW antes de atender la interrupción?
+- ¿Qué es el PSW?
+- ¿Qué hace la rutina de servicio de interrupción?
+- ¿Cómo sabe el procesador cuál dispositivo interrumpió?
+- ¿Qué es el daisy chain?
+
+Términos clave:
+- Interrupción
+- Señal de interrupción
+- Rutina de servicio de interrupción (ISR)
+- PC (Program Counter)
+- PSW (Palabra de Estado del Programa)
+- Pila de control
+- Polling de identificación
+- Daisy chain
+- Arbitraje de bus
+- Niveles de prioridad
+
+** Notas (Notes):
+
+*** Motivación: el problema de la E/S Programada
+En la E/S Programada, el CPU consulta continuamente el estado del
+módulo de E/S (polling), desperdiciando ciclos de reloj.
+
+La E/S mediante interrupción invierte el control:
+- El CPU envía la orden y *continúa con otra tarea*.
+- El módulo de E/S *avisa* al procesador cuando el dato está listo.
+
+| E/S Programada         | E/S por Interrupciones      |
+|------------------------+-----------------------------|
+| CPU pregunta sin parar | Dispositivo avisa al CPU    |
+| CPU bloqueado          | CPU libre para otras tareas |
+| Espera activa          | Espera pasiva               |
+
+*** Procesamiento de una interrupción
+
+Fase de *hardware* (automática):
+1. El dispositivo envía una señal de interrupción al procesador.
+2. El CPU termina la instrucción en curso (no la corta a la mitad).
+3. El CPU envía señal de reconocimiento; el dispositivo apaga su señal.
+4. El CPU guarda en la pila: el *PC* (dónde iba el programa) y el *PSW*
+   (estado interno del procesador — banderas, modo, etc.).
+5. El CPU carga el PC con la dirección de la rutina de interrupción (ISR).
+
+Fase de *software* (rutina de servicio):
+6. La ISR guarda los registros del procesador que va a usar.
+7. Se procesa la interrupción: lee el dato, lo transfiere a memoria,
+   comprueba errores.
+8. Se restauran los registros del procesador.
+9. Se restauran PC y PSW desde la pila -> el programa original continúa
+   exactamente donde se quedó.
+
+*** PC y PSW: por qué son importantes
+- *PC (Program Counter)*: guarda la dirección de la siguiente instrucción
+  a ejecutar. Si no se salva, el programa no sabe dónde continuar.
+- *PSW (Palabra de Estado del Programa)*: contiene banderas y el estado
+  interno del procesador. Sin él, el estado del programa queda corrupto.
+
+Analogía: son como un marcapáginas — permiten cerrar el libro
+(programa actual), atender la interrupción y volver exactamente a la
+misma página.
+
+*** Problemas de diseño
+*¿Cómo identifica el CPU cuál dispositivo interrumpió?*
+
+Cuatro técnicas:
+1. *Múltiples líneas de interrupción*: cada dispositivo tiene su propia
+   línea física al CPU.
+2. *Consulta de software (polling)*: el CPU pregunta uno por uno a cada
+   módulo hasta encontrar al responsable.
+3. *Conexión en cadena (daisy chain)*: los módulos están en serie; la
+   señal de reconocimiento pasa de uno a otro hasta que el responsable
+   la detiene.
+4. *Arbitraje de bus*: los módulos compiten por el bus; quien lo obtiene
+   se identifica.
+
+*¿A cuál atender primero si llegan varias interrupciones a la vez?*
+
+Se asignan *niveles de prioridad* a cada dispositivo:
+- Mayor prioridad -> se atiende primero.
+- Las de menor prioridad quedan pendientes.
+
+*** Ventajas y limitaciones
+Ventaja frente a E/S Programada:
+- El CPU ya no pierde tiempo en espera activa.
+
+Limitación frente a DMA:
+- El CPU sigue siendo quien transfiere los datos, palabra por palabra.
+- Cada interrupción tiene un costo: guardar y restaurar contexto
+  (registros, PC, PSW).
+- Para grandes volúmenes de datos, esto sigue siendo ineficiente ->
+  se requiere DMA.
+
+** Resumen (Summary):
+La E/S mediante interrupción resuelve el desperdicio de la E/S
+programada permitiendo que el CPU continúe ejecutando instrucciones
+mientras espera al periférico: es el dispositivo quien interrumpe al
+procesador cuando el dato está listo. Al atender la interrupción, el
+hardware guarda automáticamente el PC y el PSW en la pila para poder
+retomar el programa original una vez finalizada la rutina de servicio.
+Para identificar qué dispositivo interrumpió se usan técnicas como
+polling de software, daisy chain o arbitraje de bus, y cuando llegan
+varias interrupciones simultáneas se resuelven mediante niveles de
+prioridad.
 
 * 2026-07-10 Acceso Directo a Memoria (DMA)
 
