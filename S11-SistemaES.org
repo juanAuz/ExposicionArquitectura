@@ -174,7 +174,6 @@ Las principales funciones de un módulo de E/S son:
 - Datos                      
 
 
-*** Almacenamiento Temporal y detección de errores
 
 *** Buffer de datos
 
