@@ -78,7 +78,7 @@ los *buses del sistema*
 - Distintos *formatos* de datos
 #+ATTR_REVEAL: :frag (appear)
 #+attr_html: :style max-height: 50vh; object-fit: contain;
-[[file:images/importanciaModulo.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/importanciaModulo.png]]
 ** Dispositivos Externos
 Los dispositivos externos proporcionan una forma de intercambiar datos
 entre el *exterior* y el computador.
@@ -114,7 +114,7 @@ Determinan la *función* que debe realizar el dispositivo
 *** Diagrama de Bloques de un dispositivo externo
 #+attr_html: :style max-height: 70vh; object-fit: contain;
 #+CAPTION: Figura 7.2. Estructura de un dispositivo externo. Tomado de Stallings 7ma ed.
-[[file:images/diagramaDispExt.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/diagramaDispExt.png]]
 ** Teclado/Monitor
 Forma más *común* de interacción usuario/computador
 #+ATTR_REVEAL: :frag (appear)
@@ -133,7 +133,7 @@ Forma más *común* de interacción usuario/computador
 *** Tabla código ASCII
 #+attr_html: :style max-height: 70vh; object-fit: contain;
 #+CAPTION: Figura 7.3. Tabla del código ASCII. Tomado de Stallings 7ma ed.
-[[file:images/codigoASCII.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/codigoASCII.png]]
 
 ** Controlador de Disco (Disk Drive)
 Contiene la electrónica para:
@@ -195,7 +195,7 @@ Las principales funciones de un módulo de E/S son:
 
 #+ATTR_HTML: :style width: 80%; height: auto;
 #+CAPTION: Diagrama de bloques de un módulo de E/S
-[[file:images/BloquesES.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/BloquesES.png]]
 
 
 
@@ -227,7 +227,7 @@ La CPU controla completamente la operación de E/S.
 ** Funcionamiento de la E/S Programada
 #+ATTR_HTML: :style width: 40%; height: auto;
 #+CAPTION: Flujo de la E/S Programada
-[[file:images/DiagramaFlujo.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/DiagramaFlujo.png]]
 
 #+ATTR_REVEAL: :frag (appear)
 - La CPU verifica el estado del dispositivo, si no está listo continúa esperando
@@ -352,14 +352,14 @@ Para ello:
 En *Cycle Stealing*, el DMA utiliza temporalmente el bus.
 ** DMA vs E/S Programada vs E/S mediante interrupción
 #+ATTR_HTML: :width 1500
-[[file:images/figura-7.4.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/figura-7.4.png]]
 ** ¿Que información le proporciona el CPU al DMA?
 - Tipo de operación
 - Dispositivo de Entrada/Salida
 - Transferencia de datos
 EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
 #+ATTR_HTML: :width 1000
-[[file:images/figura_7.12.png]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/figura_7.12.png]]
 ** Configuraciones del DMA en el sistema
 - *Bus único*: Todos comparten el mismo bus
 - *DMA - E/S integrados:* El DMA se conecta directamente a
@@ -368,7 +368,7 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
   dispositivos
 ** Configuraciones del DMA en el sistema
 #+ATTR_HTML: :width 1500  
-[[File:images/figura_7.13.png]]
+[[Https://Cdn.Jsdelivr.Net/Gh/JuanAuz/ExposicionArquitectura@Main/images/figura_7.13.png]]
 ** Controlador Intel 8237 A
 - Controlador de DMA de Intel
 - Le da acceso directo a la memoria DRAM en computadores con
@@ -376,7 +376,7 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
 - No almacena ni transporta, solo genera señales de control
 - Llamado también controlador fly-by o de vuelo. 
 #+ATTR_HTML: :width 1000 
-[[file:images/inte.jpg]]
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/inte.jpg]]
 ** Señales
 *Señales HOLD/HOLAD (Controlaodr del DMA - CPU)*
 - ~HOLD~: DMA pide el bus
@@ -395,18 +395,5 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
 Dispone de cuatro canales de DMA independientes numerados del 0 al 3
 Dispone de 5 registros de control para programar y controlar la
 operación del DMA en cada uno de los canales.
-[[file:images/tabla 7.4.png]]
-* G8 — Canales y Procesadores de E/S
-** Canales y Procesadores de E/S
-** Evolución de las funciones E/S
-** Características de los canales E/S
-* G8 — Estándares de interconexión externa
-** USB
-** FireWire
-** SCSI
-** Thunderbolt
-** SATA
-** Ethernet
-** Wi-Fi
-
+[[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/tabla 7.4.png]]
 #+print_bibliography:
