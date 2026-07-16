@@ -373,7 +373,7 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
   procesadores 80x86 
 - No almacena ni transporta, solo genera señales de control
 - Llamado también controlador fly-by o de vuelo. 
-#+attr_html: :style max-height: 50vh; object-fit: contain;
+#+attr_html: :style max-height: 30vh; object-fit: contain;
 [[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/inte.jpg]]
 ** Señales
 *Señales HOLD/HOLAD (Controlaodr del DMA - CPU)*
