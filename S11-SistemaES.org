@@ -51,8 +51,8 @@
 La *arquitectura de E/S* de un computador es su interfaz con el
 exterior. Esta arquitectura permite una forma sistemática de controlar
 su interacción con el mundo exterior a la vez que proporciona al
-sistema operativo la información necesaria para para gestionar
-perifericos
+sistema operativo la información necesaria para gestionar
+periféricos
 Para ello, existen *3 técnicas principales*:
 #+ATTR_REVEAL: :frag (appear)
 - ~E/S Programada~
@@ -66,7 +66,7 @@ los *buses del sistema*
 ~Permite:~
 #+ATTR_REVEAL: :frag (appear)
 - Realizar la interfaz entre *procesador* y *memoria* a través del bus del sistema
-- Realizar la interfaz entre uno o más *perifericos*
+- Realizar la interfaz entre uno o más *periféricos*
 *** Funciones módulo
 #+attr_html: :style max-height: 80vh; object-fit: contain;
 #+CAPTION: Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.
@@ -174,6 +174,8 @@ Las principales funciones de un módulo de E/S son:
 - Datos                      
 
 
+
+** Almacenamiento Temporal y detección de errores
 
 *** Buffer de datos
 
@@ -375,7 +377,7 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
 #+attr_html: :style max-height: 30vh; object-fit: contain;
 [[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/inte.jpg]]
 ** Señales
-*Señales HOLD/HOLAD (Controlaodr del DMA - CPU)*
+*Señales HOLD/HOLAD (Controlador del DMA - CPU)*
 - ~HOLD~: DMA pide el bus
 - ~HLDA(Hold Acknowledge)~:Indica que se pueden usar los buses
 *Señales DREQ/DACK (Periférico - Controlador del DMA*)
@@ -383,7 +385,7 @@ EL DMA detiene al procesador por un ciclo de bus, no lo interrumpe
 - ~DACK (DMA Acknowledge)~: El DMA indica que se van a empezar a transferir datos
 ** Secuencia paso a paso
 1. Periférico activa *DREQ*
-2. Controlador activa *HRQ* (Hold request) hacia la CPU
+2. Controlador activa *HRQ* (Hold Request) hacia la CPU
 3. CPU termina su ciclo de bus y responde con *HLDA*
 4. Controlador activa *DACK*
 5. Transfiere byte a byte (MEMR/IOW), decrementando el contador
