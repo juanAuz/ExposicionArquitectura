@@ -1,0 +1,541 @@
+% Created 2026-07-16 Thu 22:36
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, ]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/ani_quillu/ExposicionArquitectura/bibliography.bib}
+\author{Auz Juan Diego, Lanchimba Danny, Palomeque Matías, Quillupangui Ana María}
+\date{2026-07-16}
+\title{S11 - Modulos de E/S}
+\hypersetup{
+ pdfauthor={Auz Juan Diego, Lanchimba Danny, Palomeque Matías, Quillupangui Ana María},
+ pdftitle={S11 - Modulos de E/S},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Español}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\fancyhead[C]{\includegraphics[scale=0.05]{images/logoEpn.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+\section{2026-07-10 Sistemas de Entrada/Salida (Cap. 7 Stallings)}
+\label{sec:org27ab9c9}
+
+\subsection{Preguntas y Términos clave (Cue):}
+\label{sec:org2f4256d}
+
+\begin{description}
+\item[{arquitectura de E/S}] 
+
+\item[{módulo de E/S}] 
+
+\item[{dispositivo periférico}] 
+
+\item[{código IRA}] 
+
+\item[{buffer}] 
+
+\item[{transductor}] 
+
+\item[{TODO}] ¿por qué el buffer típico es de 8 a 16 bits y no más grande?
+\end{description}
+\subsection{Notas (Notes):}
+\label{sec:orge91388e}
+
+\begin{itemize}
+\item La \textbf{arquitectura de E/S} es la interfaz del computador con el exterior
+\begin{itemize}
+\item Controla la interacción con periféricos
+\item Da al SO la info necesaria para gestionarlos
+\end{itemize}
+\item \textbf{3 técnicas principales de E/S}
+\begin{enumerate}
+\item E/S Programada
+\item E/S mediante interrupciones
+\item Acceso directo a memoria (DMA)
+\end{enumerate}
+\item \textbf{Módulo de E/S}: tercer elemento clave junto al procesador y la memoria
+\begin{itemize}
+\item No es solo un conector mecánico, tiene "inteligencia" (lógica)
+\item Función 1: interfaz procesador con  memoria vía bus del sistema
+\item Función 2: interfaz con uno o más periféricos vía enlaces específicos
+\end{itemize}
+\item \textbf{¿Por qué no conectar los periféricos directamente al bus?}
+\begin{itemize}
+\item Gran variedad de periféricos, funcionamiento muy distinto
+\item Velocidades desincronizadas (unos más lentos, otros más rápidos que memoria/CPU)
+\item Formatos y tamaños de palabra distintos
+\end{itemize}
+\item \textbf{Dispositivos externos}
+\begin{itemize}
+\item Se conectan al módulo de E/S mediante un enlace
+\item El enlace transporta señales de: control, estado, datos
+\item Clasificación:
+\begin{enumerate}
+\item Interacción con humanos (VDT, impresoras)
+\item Interacción con máquinas (discos, cintas, sensores, actuadores)
+\item De comunicación (dispositivos remotos)
+\end{enumerate}
+\end{itemize}
+\item \textbf{Señales de control}: determinan la función del dispositivo
+\begin{itemize}
+\item ENTRADA/LECTURA ("INPUT"/"READ")
+\item SALIDA/ESCRITURA ("OUTPUT"/"WRITE")
+\item Indicar estado o función de control particular (ej. posicionar cabeza de disco)
+\end{itemize}
+\item \textbf{Señales de estado y datos}
+\begin{itemize}
+\item Datos: bits enviados/recibidos del módulo de E/S
+\item Estado: LISTO / NO-LISTO ("READY"/"NOT-READY")
+\end{itemize}
+\item \textbf{Componentes internos del dispositivo externo}
+\begin{itemize}
+\item Lógica de control: controla la operación según órdenes del módulo de E/S
+\item Transductor: convierte señales eléctricas <-> otra forma de energía
+\item Buffer: almacena temporalmente el dato en tránsito (típico 8-16 bits)
+\end{itemize}
+\item \textbf{Teclado/Monitor}: forma más común de interacción usuario-computador
+\begin{itemize}
+\item Unidad básica de intercambio: el carácter
+\item Flujo entrada: tecla -> transductor -> código IRA -> módulo de E/S
+\item Flujo salida: módulo de E/S -> código IRA -> transductor -> carácter en pantalla
+\end{itemize}
+\item \textbf{Código IRA}
+\begin{itemize}
+\item 7 bits -> 128 caracteres posibles (similar a ASCII)
+\item Dos tipos: imprimibles (letras, números) y de control (ej. retorno de carro)
+\item Ejemplo: letra K = 1001011
+\item El código IRA suele almacenarse con 8 bits (octeto/byte), el octavo bit es de paridad
+\end{itemize}
+\item \textbf{Controlador de Disco (Disk Drive)}
+\begin{itemize}
+\item Contiene la electrónica para intercambiar señales de datos/control/estado con el módulo de E/S
+\item Controla el mecanismo de lectura/escritura
+\item Tipos:
+\begin{enumerate}
+\item Cabeza fija: transductor convierte patrones magnéticos <-> bits del buffer
+\item Cabeza móvil: además mueve el brazo radialmente sobre la superficie del disco
+\end{enumerate}
+\end{itemize}
+\end{itemize}
+\subsection{Enlaces de Interés}
+\label{sec:org4f23924}
+\begin{itemize}
+\item Stallings, W. \textbf{Organización y Arquitectura de Computadores}, 7ma ed., Cap. 7
+\end{itemize}
+\subsection{Resumen (Summary):}
+\label{sec:org1c95067}
+El módulo de E/S es el tercer componente clave de un computador (junto
+al procesador y la memoria) y actúa como intermediario "inteligente"
+entre el bus del sistema y los periféricos, evitando conectar estos
+últimos directamente debido a su gran variedad, distintas velocidades
+y formatos de datos. Los dispositivos externos se clasifican según su
+interacción (humanos, máquinas, comunicación) y se comunican mediante
+señales de control, estado y datos, procesadas internamente por lógica
+de control, transductor y buffer. Dos ejemplos concretos son el par
+teclado/monitor, que usa el código IRA de 7 bits (128 caracteres) para
+representar cada carácter, y el controlador de disco, que puede ser de
+cabeza fija o móvil según cómo mueva el transductor sobre la
+superficie magnética.
+\section{2026-07-10 Funciones de los Módulos de E/S y E/S Programada}
+\label{sec:orgaff78e4}
+
+\subsection{Preguntas y Términos clave (Cue):}
+\label{sec:orgcdf5c40}
+\begin{itemize}
+\item ¿Cuál es la función de un módulo de E/S?
+\item ¿Por qué se necesita un módulo de E/S entre CPU y periféricos?
+\item ¿Qué es la E/S programada?
+\item ¿Qué es el polling?
+\item ¿Cuáles son las órdenes de E/S?
+\end{itemize}
+
+Términos clave:
+\begin{itemize}
+\item Módulo de E/S
+\item Buffer
+\item Registro de estado
+\item Registro de control
+\item Polling
+\item E/S programada
+\item Decodificación
+\item Procesador
+\end{itemize}
+
+\subsection{Notas (Notes):}
+\label{sec:org0a029bd}
+
+\subsubsection{Módulos de E/S}
+\label{sec:orgd17df73}
+
+El módulo de E/S permite la comunicación entre el procesador y los
+dispositivos externos.
+
+Funciones principales:
+\begin{itemize}
+\item Control y Temporización
+\item Comunicación con el procesador.
+\item Comunicación con periféricos.
+\item Almacenamiento temporal de datos mediante buffers.
+\item Detección de errores.
+\end{itemize}
+
+El buffer permite compensar diferencias de velocidad entre la CPU, memoria
+y dispositivos externos.
+
+El procesador se comunica con un módulo de E/S con los siguientes pasos:
+\begin{enumerate}
+\item Primero consulta al módulo para conocer el estado del dispositivo
+\item El módulo responde si está listo o está ocupado
+\item Si el dispositivo está preparado, el procesador solicita la transferencia del dato
+\item El módulo obtiene la información del dispositivo externo.
+\item El módulo envia el dato hacia el procesador
+\end{enumerate}
+
+La comunicación entre el procesador y el módulo de E/S implica varios aspectos importantes
+-Decodificación de ordenes
+-Datos
+-Información de estado
+-Reconocimiento de Dirección
+
+
+\subsubsection{E/S Programada}
+\label{sec:org519e7d5}
+
+La E/S programada es una técnica donde la CPU controla directamente la
+operación de entrada/salida.
+
+Funcionamiento:
+\begin{enumerate}
+\item La CPU envía una orden al módulo de E/S.
+\item El módulo ejecuta la operación solicitada.
+\item La CPU consulta constantemente el estado del dispositivo.
+\item Se transfieren los datos cuando el dispositivo está listo.
+\end{enumerate}
+
+Este proceso se conoce como polling.
+
+Órdenes principales de E/S:
+\begin{itemize}
+\item Control: ejecuta acciones sobre el dispositivo.
+\item Test: consulta el estado del dispositivo.
+\item Lectura: obtiene datos del periférico.
+\item Escritura: envía datos al periférico.
+\end{itemize}
+
+Si bien la E/S Programada podría parecer una técnica efectiva, mantiene a
+la CPU en constante incertidumbre. Esto hace que el procesador pierda tiempo
+teniendo que consultar al módulo de E/S cada cierto tiempo si está disponible,
+tiempo que podría ser aprovechado de otra manera.
+
+\subsection{Resumen (Summary):}
+\label{sec:org205b191}
+
+Los módulos de E/S actúan como intermediarios entre el procesador y los
+dispositivos externos, permitiendo controlar la comunicación, almacenar datos
+temporalmente y detectar errores.
+
+La E/S programada permite realizar transferencias mediante el control directo
+de la CPU, pero presenta la desventaja de mantener al procesador ocupado
+consultando continuamente el estado del dispositivo.
+
+\section{2026-07-10 E/S mediante Interrupción}
+\label{sec:orge94830b}
+
+\subsection{Preguntas y Términos clave (Cue):}
+\label{sec:orgb4fe45d}
+\begin{itemize}
+\item ¿Qué problema resuelve la E/S mediante interrupción?
+\item ¿En qué se diferencia de la E/S programada?
+\item ¿Qué sucede cuando llega una señal de interrupción?
+\item ¿Por qué se guarda el PC y el PSW antes de atender la interrupción?
+\item ¿Qué es el PSW?
+\item ¿Qué hace la rutina de servicio de interrupción?
+\item ¿Cómo sabe el procesador cuál dispositivo interrumpió?
+\item ¿Qué es el daisy chain?
+\end{itemize}
+
+Términos clave:
+\begin{itemize}
+\item Interrupción
+\item Señal de interrupción
+\item Rutina de servicio de interrupción (ISR)
+\item PC (Program Counter)
+\item PSW (Palabra de Estado del Programa)
+\item Pila de control
+\item Polling de identificación
+\item Daisy chain
+\item Arbitraje de bus
+\item Niveles de prioridad
+\end{itemize}
+
+\subsection{Notas (Notes):}
+\label{sec:orge2f8e94}
+
+\subsubsection{Motivación: el problema de la E/S Programada}
+\label{sec:org2d2139d}
+En la E/S Programada, el CPU consulta continuamente el estado del
+módulo de E/S (polling), desperdiciando ciclos de reloj.
+
+La E/S mediante interrupción invierte el control:
+\begin{itemize}
+\item El CPU envía la orden y \textbf{continúa con otra tarea}.
+\item El módulo de E/S \textbf{avisa} al procesador cuando el dato está listo.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ll}
+E/S Programada & E/S por Interrupciones\\[0pt]
+\hline
+CPU pregunta sin parar & Dispositivo avisa al CPU\\[0pt]
+CPU bloqueado & CPU libre para otras tareas\\[0pt]
+Espera activa & Espera pasiva\\[0pt]
+\end{tabular}
+\end{center}
+
+\subsubsection{Procesamiento de una interrupción}
+\label{sec:orgc3e6756}
+
+Fase de \textbf{hardware} (automática):
+\begin{enumerate}
+\item El dispositivo envía una señal de interrupción al procesador.
+\item El CPU termina la instrucción en curso (no la corta a la mitad).
+\item El CPU envía señal de reconocimiento; el dispositivo apaga su señal.
+\item El CPU guarda en la pila: el \textbf{PC} (dónde iba el programa) y el \textbf{PSW}
+(estado interno del procesador — banderas, modo, etc.).
+\item El CPU carga el PC con la dirección de la rutina de interrupción (ISR).
+\end{enumerate}
+
+Fase de \textbf{software} (rutina de servicio):
+\begin{enumerate}
+\item La ISR guarda los registros del procesador que va a usar.
+\item Se procesa la interrupción: lee el dato, lo transfiere a memoria,
+comprueba errores.
+\item Se restauran los registros del procesador.
+\item Se restauran PC y PSW desde la pila -> el programa original continúa
+exactamente donde se quedó.
+\end{enumerate}
+
+\subsubsection{PC y PSW: por qué son importantes}
+\label{sec:org2c6eb70}
+\begin{itemize}
+\item \textbf{PC (Program Counter)}: guarda la dirección de la siguiente instrucción
+a ejecutar. Si no se salva, el programa no sabe dónde continuar.
+\item \textbf{PSW (Palabra de Estado del Programa)}: contiene banderas y el estado
+interno del procesador. Sin él, el estado del programa queda corrupto.
+\end{itemize}
+
+Analogía: son como un marcapáginas — permiten cerrar el libro
+(programa actual), atender la interrupción y volver exactamente a la
+misma página.
+
+\subsubsection{Problemas de diseño}
+\label{sec:orgadfb9ab}
+\textbf{¿Cómo identifica el CPU cuál dispositivo interrumpió?}
+
+Cuatro técnicas:
+\begin{enumerate}
+\item \textbf{Múltiples líneas de interrupción}: cada dispositivo tiene su propia
+línea física al CPU.
+\item \textbf{Consulta de software (polling)}: el CPU pregunta uno por uno a cada
+módulo hasta encontrar al responsable.
+\item \textbf{Conexión en cadena (daisy chain)}: los módulos están en serie; la
+señal de reconocimiento pasa de uno a otro hasta que el responsable
+la detiene.
+\item \textbf{Arbitraje de bus}: los módulos compiten por el bus; quien lo obtiene
+se identifica.
+\end{enumerate}
+
+\textbf{¿A cuál atender primero si llegan varias interrupciones a la vez?}
+
+Se asignan \textbf{niveles de prioridad} a cada dispositivo:
+\begin{itemize}
+\item Mayor prioridad -> se atiende primero.
+\item Las de menor prioridad quedan pendientes.
+\end{itemize}
+
+\subsubsection{Ventajas y limitaciones}
+\label{sec:org3845522}
+Ventaja frente a E/S Programada:
+\begin{itemize}
+\item El CPU ya no pierde tiempo en espera activa.
+\end{itemize}
+
+Limitación frente a DMA:
+\begin{itemize}
+\item El CPU sigue siendo quien transfiere los datos, palabra por palabra.
+\item Cada interrupción tiene un costo: guardar y restaurar contexto
+(registros, PC, PSW).
+\item Para grandes volúmenes de datos, esto sigue siendo ineficiente ->
+se requiere DMA.
+\end{itemize}
+
+\subsection{Resumen (Summary):}
+\label{sec:org7774b89}
+La E/S mediante interrupción resuelve el desperdicio de la E/S
+programada permitiendo que el CPU continúe ejecutando instrucciones
+mientras espera al periférico: es el dispositivo quien interrumpe al
+procesador cuando el dato está listo. Al atender la interrupción, el
+hardware guarda automáticamente el PC y el PSW en la pila para poder
+retomar el programa original una vez finalizada la rutina de servicio.
+Para identificar qué dispositivo interrumpió se usan técnicas como
+polling de software, daisy chain o arbitraje de bus, y cuando llegan
+varias interrupciones simultáneas se resuelven mediante niveles de
+prioridad.
+
+\section{2026-07-10 Acceso Directo a Memoria (DMA)}
+\label{sec:orgd0b9b55}
+
+\subsection{Preguntas y Términos clave (Cue):}
+\label{sec:org49929df}
+\begin{itemize}
+\item ¿Qué es el DMA y por qué surge?
+\item ¿Qué problemas tienen la E/S programada y por interrupciones?
+\item ¿Qué es el Cycle Stealing?
+\item ¿Qué información proporciona el CPU al DMA?
+\item ¿En qué se diferencia el DMA de una interrupción?
+\item ¿Qué configuraciones de DMA existen?
+\item ¿Qué es el Intel 8237A y por qué se llama "fly-by"?
+\item ¿Qué señales utiliza?
+\item ¿Cuántos canales y registros tiene?
+\end{itemize}
+
+Términos clave:
+\begin{itemize}
+\item DMA
+\item Cycle Stealing
+\item HOLD / HLDA
+\item DREQ / DACK
+\item Controlador fly-by
+\item Canal DMA
+\item Registros: Orden, Estado, Modo y Máscara
+\end{itemize}
+
+\subsection{Notas (Notes):}
+\label{sec:org6cdccaf}
+
+\subsubsection{Motivación}
+\label{sec:org931b915}
+La E/S programada y por interrupciones presentan dos limitaciones:
+\begin{itemize}
+\item La velocidad depende del procesador.
+\item El CPU participa en cada transferencia.
+\end{itemize}
+
+Para mover grandes cantidades de datos se utiliza el DMA.
+
+\subsubsection{¿Qué es el DMA?}
+\label{sec:org3b45217}
+El DMA permite transferir datos entre memoria y dispositivos de E/S sin la intervención constante del CPU.
+
+Proceso:
+\begin{enumerate}
+\item Solicita el control del bus.
+\item Realiza la transferencia.
+\item Devuelve el bus al procesador.
+\end{enumerate}
+
+Puede usar el bus cuando el CPU no lo ocupa o mediante \textbf{\textbf{Cycle Stealing}}, donde toma temporalmente el bus para realizar una transferencia.
+
+\subsubsection{Información que recibe del CPU}
+\label{sec:orgbfcdea9}
+Antes de iniciar la transferencia, el CPU indica:
+\begin{itemize}
+\item Lectura o escritura.
+\item Dispositivo de E/S.
+\item Dirección inicial de memoria.
+\item Cantidad de datos a transferir.
+\end{itemize}
+
+Después de configurarlo, el CPU solo interviene al inicio y al final.
+
+\subsubsection{DMA vs. interrupción}
+\label{sec:org1088d1e}
+El DMA detiene al procesador solo durante un ciclo de bus.
+
+\begin{itemize}
+\item No guarda contexto.
+\item No utiliza PSW ni pila.
+\end{itemize}
+
+Las interrupciones solo se atienden al finalizar una instrucción; el DMA puede tomar el bus entre ciclos de bus.
+
+\subsubsection{Configuraciones del DMA}
+\label{sec:org7fc2a9d}
+\begin{itemize}
+\item \textbf{\textbf{Bus único, DMA independiente:}} todos comparten el mismo bus.
+\item \textbf{\textbf{Bus único, DMA-E/S integrados:}} los periféricos se conectan directamente al DMA.
+\item \textbf{\textbf{DMA con bus de E/S propio:}} el DMA administra un bus exclusivo para los periféricos.
+\end{itemize}
+
+\subsubsection{Controlador Intel 8237A}
+\label{sec:orge01f4e0}
+Controlador DMA para computadores con procesadores de la familia 80x86.
+
+Se denomina \textbf{\textbf{fly-by}} porque los datos viajan directamente entre memoria y periférico; el controlador solo coordina la transferencia.
+
+Señales:
+\begin{itemize}
+\item \textbf{\textbf{HOLD / HLDA:}} comunicación entre DMA y CPU.
+\begin{itemize}
+\item \textbf{\textbf{DREQ / DACK:}} comunicación entre periférico y DMA.
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Secuencia de transferencia}
+\label{sec:org834aded}
+\begin{enumerate}
+\item El periférico envía DREQ.
+\item El DMA solicita el bus (HRQ).
+\item La CPU responde con HLDA.
+\item El DMA activa DACK.
+\item Transfiere los datos y decrementa el contador.
+\item Al finalizar, libera el bus.
+\end{enumerate}
+
+\subsubsection{Canales y registros}
+\label{sec:org1a60309}
+\begin{itemize}
+\item Cuatro canales DMA (0–3), programables de forma independiente.
+\item Cinco registros principales: Orden, Estado, Modo, Máscara simple y Máscara completa.
+\end{itemize}
+
+\subsection{Resumen (Summary):}
+\label{sec:org5cf09d4}
+El DMA permite transferir datos entre memoria y dispositivos de E/S sin la intervención constante del procesador,
+mejorando el rendimiento frente a la E/S programada y por
+interrupciones. El Intel 8237A coordina estas transferencias mediante
+las señales HOLD/HLDA y DREQ/DACK, utilizando cuatro canales y cinco
+registros de control.
+
+\section{{\bfseries\sffamily TODO} Mis Tareas [0\%]}
+\label{sec:org2d53f48}
+\begin{itemize}
+\item[{$\square$}] Leer este documento
+\item[{$\square$}] Escribir el resumen de la exposición 7
+\end{itemize}
+\end{document}

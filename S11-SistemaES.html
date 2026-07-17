@@ -35,8 +35,8 @@
 </section>
 
 <section>
-<section id="slide-orgf9a4ab0">
-<h2 id="orgf9a4ab0">Sistemas de Entrada/Salida</h2>
+<section id="slide-orged84816">
+<h2 id="orged84816">Sistemas de Entrada/Salida</h2>
 <p>
 La <b>arquitectura de E/S</b> de un computador es su interfaz con el
 exterior. Esta arquitectura permite una forma sistemática de controlar
@@ -52,48 +52,36 @@ Para ello, existen <b>3 técnicas principales</b>:
 
 </ul>
 </section>
-<section id="slide-orgc6d90b0">
-<h3 id="orgc6d90b0">Modulo de E/S</h3>
+<section id="slide-org4ef59d4">
+<h3 id="org4ef59d4">Modulo de E/S</h3>
 <p>
 Elemento clave de un computador junto al procesador y la
 memoria. Permite y gestiona la comunicación entre los <b>periféricos</b> y
 los <b>buses del sistema</b>
 </p>
 
-<p>
-<code>Permite:</code>
-</p>
-<ul>
-<li class="fragment appear">Realizar la interfaz entre <b>procesador</b> y <b>memoria</b> a través del bus del sistema</li>
-<li class="fragment appear">Realizar la interfaz entre uno o más <b>periféricos</b></li>
-
-</ul>
-</section>
-<section id="slide-org81f6945">
-<h4 id="org81f6945">Funciones módulo</h4>
-
-<div id="org3de0d9b" class="figure">
-<p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/funcionesModuloES.png" alt="funcionesModuloES.png" style="max-height: 80vh; object-fit: contain;" />
+<div id="orgaf1caa1" class="figure">
+<p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/funcionesModuloES.png" alt="funcionesModuloES.png" style="max-height: 50vh; object-fit: contain;" />
 </p>
 <p><span class="figure-number">Figura 1: </span>Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.</p>
 </div>
 </section>
-<section id="slide-orgc65abed">
-<h4 id="orgc65abed">¿Por que no conectar directamente?</h4>
+<section id="slide-orge7b94b7">
+<h4 id="orge7b94b7">¿Por que no conectar directamente?</h4>
+
+<div id="org99edf5d" class="figure">
+<p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/importanciaModulo.png" alt="importanciaModulo.png" style="max-height: 50vh; object-fit: contain;" />
+</p>
+</div>
 <ul>
-<li class="fragment appear">Amplia <b>variedad</b> con funcionamiento variable.</li>
+<li class="fragment appear">Amplia <b>variedad</b> de dispositivos con funcionamiento variable.</li>
 <li class="fragment appear">Desincronización de <b>velocidades</b>.</li>
 <li class="fragment appear">Distintos <b>formatos</b> de datos</li>
 
 </ul>
-
-<div id="orge6074a3" class="figure">
-<p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/importanciaModulo.png" alt="importanciaModulo.png" class="fragment (appear)" style="max-height: 50vh; object-fit: contain;" />
-</p>
-</div>
 </section>
-<section id="slide-orgb629964">
-<h3 id="orgb629964">Dispositivos Externos</h3>
+<section id="slide-org8b7165e">
+<h3 id="org8b7165e">Dispositivos Externos</h3>
 <p>
 Los dispositivos externos proporcionan una forma de intercambiar datos
 entre el <b>exterior</b> y el computador.
@@ -109,17 +97,17 @@ entre el <b>exterior</b> y el computador.
 
 </ul>
 </section>
-<section id="slide-org06d5b99">
-<h4 id="org06d5b99">Clasificación de dispositivos externos</h4>
+<section id="slide-orgb7fa092">
+<h4 id="orgb7fa092">Clasificación de dispositivos externos</h4>
 <ul>
-<li><b>Interacción con humanos</b>: comunicación con el usuario (VDT, impresoras)</li>
-<li><b>Interacción con máquinas</b>: discos, cintas, sensores, actuadores (robótica)</li>
-<li><b>De comunicación</b>: comunicación con dispositivos remotos</li>
+<li class="fragment appear"><b>Interacción con humanos</b>: comunicación con el usuario (VDT, impresoras)</li>
+<li class="fragment appear"><b>Interacción con máquinas</b>: discos, cintas, sensores, actuadores (robótica)</li>
+<li class="fragment appear"><b>De comunicación</b>: comunicación con dispositivos remotos</li>
 
 </ul>
 </section>
-<section id="slide-org2d3e70e">
-<h4 id="org2d3e70e">Señales de control</h4>
+<section id="slide-orga81418b">
+<h4 id="orga81418b">Señales de control</h4>
 <p>
 Determinan la <b>función</b> que debe realizar el dispositivo
 </p>
@@ -131,8 +119,8 @@ Determinan la <b>función</b> que debe realizar el dispositivo
 
 </ul>
 </section>
-<section id="slide-orga0e6be3">
-<h4 id="orga0e6be3">Señales de estado y datos</h4>
+<section id="slide-orgf08f4a9">
+<h4 id="orgf08f4a9">Señales de estado y datos</h4>
 <ul>
 <li class="fragment appear"><code>Datos</code>: conjunto de bits enviados o recibidos del módulo de E/S</li>
 <li class="fragment appear"><p>
@@ -145,7 +133,7 @@ Determinan la <b>función</b> que debe realizar el dispositivo
 
 </ul>
 <ul class="org-ul">
-<li><a id="orgf6e2e54"></a><code>Componentes internos</code><br />
+<li><a id="orgac7224b"></a><code>Componentes internos</code><br />
 <ul>
 <li class="fragment appear"><b>Lógica de control</b>: controla la operación según las órdenes del módulo de E/S</li>
 <li class="fragment appear"><b>Transductor</b>: convierte señales eléctricas en  otra forma de energía</li>
@@ -156,17 +144,17 @@ Determinan la <b>función</b> que debe realizar el dispositivo
 </li>
 </ul>
 </section>
-<section id="slide-orgb38e633">
-<h4 id="orgb38e633">Diagrama de Bloques de un dispositivo externo</h4>
+<section id="slide-org51e7fca">
+<h4 id="org51e7fca">Diagrama de Bloques de un dispositivo externo</h4>
 
-<div id="org41a5c98" class="figure">
+<div id="orgbf5dc9f" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/diagramaDispExt.png" alt="diagramaDispExt.png" style="max-height: 75vh; object-fit: contain;" />
 </p>
 <p><span class="figure-number">Figura 2: </span>Figura 7.2. Estructura de un dispositivo externo. Tomado de Stallings 7ma ed.</p>
 </div>
 </section>
-<section id="slide-orge81ac91">
-<h3 id="orge81ac91">Teclado/Monitor</h3>
+<section id="slide-orga5df1e7">
+<h3 id="orga5df1e7">Teclado/Monitor</h3>
 <p>
 Forma más <b>común</b> de interacción usuario/computador
 </p>
@@ -177,7 +165,7 @@ Forma más <b>común</b> de interacción usuario/computador
 
 </ul>
 <ul class="org-ul">
-<li><a id="orgf43f4ac"></a><code>Flujo de la señal</code><br />
+<li><a id="org360e91b"></a><code>Flujo de la señal</code><br />
 <ul>
 <li class="fragment appear"><b>Entrada</b>: tecla → transductor → código IRA → módulo de E/S</li>
 <li class="fragment appear"><b>Salida</b>: módulo de E/S → código IRA → transductor → carácter en pantalla</li>
@@ -186,8 +174,8 @@ Forma más <b>común</b> de interacción usuario/computador
 </li>
 </ul>
 </section>
-<section id="slide-orgb33e575">
-<h4 id="orgb33e575">Código IRA</h4>
+<section id="slide-org884f255">
+<h4 id="org884f255">Código IRA</h4>
 <ul>
 <li class="fragment appear"><b>7 bits</b> → 128 caracteres posibles <code>(similar a ASCII)</code></li>
 <li class="fragment appear">Dos tipos: <b>imprimibles</b> (letras, números) y <b>de control</b> (ej. retorno de carro)</li>
@@ -195,18 +183,18 @@ Forma más <b>común</b> de interacción usuario/computador
 
 </ul>
 </section>
-<section id="slide-orgcc147cd">
-<h4 id="orgcc147cd">Tabla código ASCII</h4>
+<section id="slide-org494cd09">
+<h4 id="org494cd09">Tabla código ASCII</h4>
 
-<div id="org5c0625c" class="figure">
+<div id="org7b209ad" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/codigoASCII.png" alt="codigoASCII.png" style="max-height: 75vh; object-fit: contain;" />
 </p>
 <p><span class="figure-number">Figura 3: </span>Figura 7.3. Tabla del código ASCII. Tomado de Stallings 7ma ed.</p>
 </div>
 
 </section>
-<section id="slide-orgef3f307">
-<h3 id="orgef3f307">Controlador de Disco (Disk Drive)</h3>
+<section id="slide-org50fec74">
+<h3 id="org50fec74">Controlador de Disco (Disk Drive)</h3>
 <p>
 Contiene la electrónica para:
 </p>
@@ -216,7 +204,7 @@ Contiene la electrónica para:
 
 </ul>
 <ul class="org-ul">
-<li><a id="org4b866d9"></a><code>Tipos de disco</code><br />
+<li><a id="orgc22df9a"></a><code>Tipos de disco</code><br />
 <ul>
 <li class="fragment appear"><b>Cabeza fija</b>: el transductor convierte patrones magnéticos ↔ bits del buffer</li>
 <li class="fragment appear"><b>Cabeza móvil</b>: además mueve el brazo <b>radialmente</b> sobre la superficie del disco</li>
@@ -228,8 +216,8 @@ Contiene la electrónica para:
 </section>
 </section>
 <section>
-<section id="slide-org36965c2">
-<h2 id="org36965c2">Módulos de E/S</h2>
+<section id="slide-org7636fbe">
+<h2 id="org7636fbe">Módulos de E/S</h2>
 <p>
 <code>Funciones del módulo de E/S</code>
 </p>
@@ -249,8 +237,8 @@ Las principales funciones de un módulo de E/S son:
 
 
 </section>
-<section id="slide-orge62efcc">
-<h3 id="orge62efcc">Comunicación con el procesador</h3>
+<section id="slide-orge2a3813">
+<h3 id="orge2a3813">Comunicación con el procesador</h3>
 <ol>
 <li class="fragment appear">El procesador interroga al módulo de E/S</li>
 <li class="fragment appear">El módulo de E/S devuelve el estado del dispositivo</li>
@@ -261,8 +249,8 @@ Las principales funciones de un módulo de E/S son:
 </ol>
 
 </section>
-<section id="slide-org68c3cb6">
-<h3 id="org68c3cb6">La comunicación con el procesador implica:</h3>
+<section id="slide-org8a143a7">
+<h3 id="org8a143a7">La comunicación con el procesador implica:</h3>
 <ul>
 <li>Decodificación de órdenes</li>
 <li>Información de Estado</li>
@@ -273,23 +261,20 @@ Las principales funciones de un módulo de E/S son:
 
 
 </section>
-<section id="slide-org03ee7cc">
-<h3 id="org03ee7cc">Almacenamiento Temporal y detección de errores</h3>
-<div class="outline-text-3" id="text-org03ee7cc">
-</div>
-</section>
-<section id="slide-org2d3f386">
-<h4 id="org2d3f386">Buffer de datos</h4>
+<section id="slide-org84065d6">
+<h3 id="org84065d6">Almacenamiento Temporal y detección de errores</h3>
+<p>
+<code>Buffer de datos</code>
+</p>
 <ul>
 <li class="fragment appear">Compensa diferencias de velocidad</li>
 <li class="fragment appear">Almacena temporalmente los datos</li>
 <li class="fragment appear">Sincroniza CPU y periféricos</li>
 
 </ul>
-
-</section>
-<section id="slide-orga380b57">
-<h4 id="orga380b57">Detección de errores</h4>
+<p>
+<code>Detección de errores</code>
+</p>
 <ul>
 <li class="fragment appear">Fallos del dispositivo</li>
 <li class="fragment appear">Errores de transmisión</li>
@@ -299,10 +284,10 @@ Las principales funciones de un módulo de E/S son:
 
 
 </section>
-<section id="slide-org4098d5b">
-<h3 id="org4098d5b">Estructura de un módulo de E/S</h3>
+<section id="slide-org724b0e6">
+<h3 id="org724b0e6">Estructura de un módulo de E/S</h3>
 
-<div id="org4ce7235" class="figure">
+<div id="org7e657fe" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/BloquesES.png" alt="BloquesES.png" style="width: 80%; height: auto;" />
 </p>
 <p><span class="figure-number">Figura 4: </span>Diagrama de bloques de un módulo de E/S</p>
@@ -313,8 +298,8 @@ Las principales funciones de un módulo de E/S son:
 </section>
 </section>
 <section>
-<section id="slide-org8428935">
-<h2 id="org8428935">E/S Programada</h2>
+<section id="slide-orgbd3c74b">
+<h2 id="orgbd3c74b">E/S Programada</h2>
 <p>
 La CPU controla completamente la operación de E/S.
 </p>
@@ -332,8 +317,8 @@ La CPU controla completamente la operación de E/S.
 
 
 </section>
-<section id="slide-org6085e02">
-<h3 id="org6085e02">Órdenes de E/S</h3>
+<section id="slide-org2d2d2ab">
+<h3 id="org2d2d2ab">Órdenes de E/S</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -373,10 +358,10 @@ La CPU controla completamente la operación de E/S.
 
 
 </section>
-<section id="slide-org9a39faf">
-<h3 id="org9a39faf">Funcionamiento de la E/S Programada</h3>
+<section id="slide-orge622ba4">
+<h3 id="orge622ba4">Funcionamiento de la E/S Programada</h3>
 
-<div id="orgee280e6" class="figure">
+<div id="org0be5311" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/DiagramaFlujo.png" alt="DiagramaFlujo.png" style="width: 40%; height: auto;" />
 </p>
 <p><span class="figure-number">Figura 5: </span>Flujo de la E/S Programada</p>
@@ -390,8 +375,8 @@ La CPU controla completamente la operación de E/S.
 </section>
 </section>
 <section>
-<section id="slide-org8a6dfc1">
-<h2 id="org8a6dfc1">E/S mediante Interrupción</h2>
+<section id="slide-org771f974">
+<h2 id="org771f974">E/S mediante Interrupción</h2>
 <p style="font-size:1.2em; color:#f8f8f2; text-align:center; display:block; margin:0.4em auto 0;">
 El módulo de E/S <b>interrumpe</b> al procesador cuando tiene el dato listo.
 </p>
@@ -403,8 +388,8 @@ El módulo de E/S <b>interrumpe</b> al procesador cuando tiene el dato listo.
 </div>
 
 </section>
-<section id="slide-org72ca334">
-<h3 id="org72ca334">E/S mediante Interrupción (11, 280) (7, 243)</h3>
+<section id="slide-orgf54bcb1">
+<h3 id="orgf54bcb1">E/S mediante Interrupción (11, 280) (7, 243)</h3>
 <table style="width:100%; border-collapse:collapse; margin-top:0.6em; font-size:0.8em;">
   <thead>
     <tr>
@@ -429,8 +414,8 @@ El módulo de E/S <b>interrumpe</b> al procesador cuando tiene el dato listo.
 </table>
 
 </section>
-<section id="slide-org3c58bb9">
-<h3 id="org3c58bb9">Procesamiento de la Interrupción</h3>
+<section id="slide-org993e3dc">
+<h3 id="org993e3dc">Procesamiento de la Interrupción</h3>
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5em; text-align:left; font-size:0.8em; margin-top:0.2em;">
   <div>
     <div style="color:#bd93f9; font-weight:700; font-size:1.1em; margin-bottom:0.7em; letter-spacing:0.03em;">HARDWARE</div>
@@ -477,8 +462,8 @@ El módulo de E/S <b>interrumpe</b> al procesador cuando tiene el dato listo.
 </div>
 
 </section>
-<section id="slide-org55defd9">
-<h3 id="org55defd9">Problemas de diseño</h3>
+<section id="slide-org9cb966a">
+<h3 id="org9cb966a">Problemas de diseño</h3>
 <div style="text-align:left; font-size:0.82em; margin-top:0.2em;">
   <div style="color:#bd93f9; font-weight:700; margin-bottom:0.5em; font-size:1.05em;">¿Quién interrumpió?</div>
   <ul style="list-style:none; padding:0; margin:0 0 1.3em 0;">
@@ -496,8 +481,8 @@ El módulo de E/S <b>interrumpe</b> al procesador cuando tiene el dato listo.
 </section>
 </section>
 <section>
-<section id="slide-org4a696fe">
-<h2 id="org4a696fe">Acceso directo a Memoria DMA</h2>
+<section id="slide-orge53e3d4">
+<h2 id="orge53e3d4">Acceso directo a Memoria DMA</h2>
 <p>
 <b>El DMA (Direct Memory Access)</b> es un módulo que permite realizar
 transferencias de datos entre memoria y dispositivos de E/S sin la
@@ -518,16 +503,16 @@ Para ello:
 En <b>Cycle Stealing</b>, el DMA utiliza temporalmente el bus.
 </p>
 </section>
-<section id="slide-orgea81742">
-<h3 id="orgea81742">DMA vs E/S Programada vs E/S mediante interrupción</h3>
+<section id="slide-org4339d8e">
+<h3 id="org4339d8e">DMA vs E/S Programada vs E/S mediante interrupción</h3>
 
-<div id="org4841a80" class="figure">
+<div id="org3818bf3" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/figura-7.4.png" alt="figura-7.4.png" style="max-height: 100vh; object-fit: contain;" />
 </p>
 </div>
 </section>
-<section id="slide-orga2a9de8">
-<h3 id="orga2a9de8">¿Que información le proporciona el CPU al DMA?</h3>
+<section id="slide-orgd55cd77">
+<h3 id="orgd55cd77">¿Que información le proporciona el CPU al DMA?</h3>
 <ul>
 <li class="fragment appear">Tipo de operación</li>
 <li class="fragment appear">Dispositivo de Entrada/Salida</li>
@@ -541,13 +526,13 @@ El DMA detiene al procesador por un ciclo de bus, no lo interrumpe.
 </p>
 
 
-<div id="orgabd34f9" class="figure">
+<div id="orgb1b39aa" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/figura_7.12.png" alt="figura_7.12.png" style="max-height: 50vh; object-fit: contain;" />
 </p>
 </div>
 </section>
-<section id="slide-org627dd60">
-<h3 id="org627dd60">Configuraciones del DMA en el sistema</h3>
+<section id="slide-orge390c11">
+<h3 id="orge390c11">Configuraciones del DMA en el sistema</h3>
 <ul>
 <li class="fragment appear"><b>Bus único</b>: Todos comparten el mismo bus.</li>
 <li class="fragment appear"><b>DMA - E/S integrados</b>: El DMA se conecta directamente a los periféricos.</li>
@@ -557,17 +542,17 @@ El DMA detiene al procesador por un ciclo de bus, no lo interrumpe.
 
 
 </section>
-<section id="slide-orgeebd0d1">
-<h3 id="orgeebd0d1">Configuraciones del DMA en el sistema</h3>
+<section id="slide-org13cfa45">
+<h3 id="org13cfa45">Configuraciones del DMA en el sistema</h3>
 
-<div id="orgde6eeed" class="figure">
+<div id="orgcbeb2a5" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/figura_7.13.png" alt="figura_7.13.png" style="max-height: 100vh; object-fit: contain;" />
 </p>
 </div>
 
 </section>
-<section id="slide-org807c0ed">
-<h3 id="org807c0ed">Controlador Intel 8237 A</h3>
+<section id="slide-orgadeca80">
+<h3 id="orgadeca80">Controlador Intel 8237 A</h3>
 <ul>
 <li class="fragment appear">Controlador de DMA de Intel.</li>
 <li class="fragment appear">Proporciona acceso directo a memoria DRAM en procesadores 80x86.</li>
@@ -577,13 +562,13 @@ El DMA detiene al procesador por un ciclo de bus, no lo interrumpe.
 </ul>
 
 
-<div id="orgd173377" class="figure">
+<div id="org3322e12" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/inte.jpg" alt="inte.jpg" style="max-height: 30vh; object-fit: contain;" />
 </p>
 </div>
 </section>
-<section id="slide-org5687d29">
-<h3 id="org5687d29">Señales</h3>
+<section id="slide-org16b318f">
+<h3 id="org16b318f">Señales</h3>
 <p>
 <b>Señales HOLD/HLDA (Controlador del DMA - CPU)</b>
 </p>
@@ -606,8 +591,8 @@ El DMA detiene al procesador por un ciclo de bus, no lo interrumpe.
 
 
 </section>
-<section id="slide-orgdf3a9c0">
-<h3 id="orgdf3a9c0">Secuencia paso a paso</h3>
+<section id="slide-orgaa76a1f">
+<h3 id="orgaa76a1f">Secuencia paso a paso</h3>
 <ol>
 <li>Periférico activa <b>DREQ</b></li>
 <li>Controlador activa <b>HRQ</b> (Hold Request) hacia la CPU</li>
@@ -619,8 +604,8 @@ El DMA detiene al procesador por un ciclo de bus, no lo interrumpe.
 </ol>
 
 </section>
-<section id="slide-org2854a86">
-<h3 id="org2854a86">Canales y registros del 8237A</h3>
+<section id="slide-org6a8700c">
+<h3 id="org6a8700c">Canales y registros del 8237A</h3>
 <ul>
 <li class="fragment appear">Dispone de cuatro canales DMA independientes (0 al 3).</li>
 <li class="fragment appear">Cada canal puede configurarse mediante registros de control.</li>
@@ -630,7 +615,7 @@ El DMA detiene al procesador por un ciclo de bus, no lo interrumpe.
 
 
 
-<div id="org7420ce4" class="figure">
+<div id="orgfe497a3" class="figure">
 <p><img src="https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/tabla%207.4.png" alt="tabla%207.4.png" style="max-height: 50vh; object-fit: contain;" />
 </p>
 </div>

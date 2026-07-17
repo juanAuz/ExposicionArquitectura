@@ -4,8 +4,8 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
 #+title: S11 - Modulos de E/S
-#+date:  2026-07-10
-#+author: Matías Palomeque
+#+date:  2026-07-16
+#+author: Auz Juan Diego, Lanchimba Danny, Palomeque Matías, Quillupangui Ana María 
 #+email: 
 #+language: Español
 #+select_tags: export
@@ -38,7 +38,7 @@
 
 
 #+begin_export latex
-\fancyhead[C]{\includegraphics[scale=0.05]{./imagenes/logoEpn.jpg}\\
+\fancyhead[C]{\includegraphics[scale=0.05]{images/logoEpn.jpg}\\
 ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
 ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
