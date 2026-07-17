@@ -62,23 +62,16 @@ Para ello, existen *3 técnicas principales*:
 Elemento clave de un computador junto al procesador y la
 memoria. Permite y gestiona la comunicación entre los *periféricos* y
 los *buses del sistema*
-
-~Permite:~
-#+ATTR_REVEAL: :frag (appear)
-- Realizar la interfaz entre *procesador* y *memoria* a través del bus del sistema
-- Realizar la interfaz entre uno o más *periféricos*
-*** Funciones módulo
-#+attr_html: :style max-height: 80vh; object-fit: contain;
+#+attr_html: :style max-height: 50vh; object-fit: contain;
 #+CAPTION: Figura 7.1. Módulo genérico E/S. Tomado de Stallings 7ma ed.
 [[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/funcionesModuloES.png]]
 *** ¿Por que no conectar directamente?
-#+ATTR_REVEAL: :frag (appear)
-- Amplia *variedad* con funcionamiento variable.
-- Desincronización de *velocidades*.
-- Distintos *formatos* de datos
-#+ATTR_REVEAL: :frag (appear)
 #+attr_html: :style max-height: 50vh; object-fit: contain;
 [[https://cdn.jsdelivr.net/gh/juanAuz/ExposicionArquitectura@main/images/importanciaModulo.png]]
+#+ATTR_REVEAL: :frag (appear)
+- Amplia *variedad* de dispositivos con funcionamiento variable.
+- Desincronización de *velocidades*.
+- Distintos *formatos* de datos
 ** Dispositivos Externos
 Los dispositivos externos proporcionan una forma de intercambiar datos
 entre el *exterior* y el computador.
@@ -89,6 +82,7 @@ entre el *exterior* y el computador.
 - El enlace intercambia señales de *control*, *estado* y *datos*
 - También llamados *dispositivos periféricos*
 *** Clasificación de dispositivos externos
+#+ATTR_REVEAL: :frag (appear)
 - *Interacción con humanos*: comunicación con el usuario (VDT, impresoras)
 - *Interacción con máquinas*: discos, cintas, sensores, actuadores (robótica)
 - *De comunicación*: comunicación con dispositivos remotos
@@ -141,7 +135,7 @@ Contiene la electrónica para:
 - Intercambiar señales de *datos*, *control* y *estado* con el módulo de E/S
 - Controlar el mecanismo de *lectura/escritura* del disco
 **** ~Tipos de disco~
-#+ATTR_REVEAL: :frag (appear)
+    #+ATTR_REVEAL: :frag (appear)
 - *Cabeza fija*: el transductor convierte patrones magnéticos ↔ bits del buffer
 - *Cabeza móvil*: además mueve el brazo *radialmente* sobre la superficie del disco
 
@@ -176,16 +170,12 @@ Las principales funciones de un módulo de E/S son:
 
 
 ** Almacenamiento Temporal y detección de errores
-
-*** Buffer de datos
-
-#+ATTR_REVEAL: :frag (appear)
+~Buffer de datos~
+#+ATTR_REVEAL: :frag (appear) 
 - Compensa diferencias de velocidad
 - Almacena temporalmente los datos
 - Sincroniza CPU y periféricos
-
-*** Detección de errores
-
+~Detección de errores~
 #+ATTR_REVEAL: :frag (appear)
 - Fallos del dispositivo
 - Errores de transmisión
